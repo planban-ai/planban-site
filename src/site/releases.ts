@@ -26,5 +26,5 @@ export const planbanReleases: readonly PlanbanRelease[] = [
 ];
 
 export function releaseUrl(release: PlanbanRelease): string {
-  return release.page ?? `https://github.com/piercekearns/planban/releases/tag/v${release.version}`;
+  return release.page ?? `https://github.com/planban-ai/planban/releases/tag/v${release.version}`;
 }

@@ -1,6 +1,6 @@
 # Planban website
 
-This repository is the canonical source for [planban.ai](https://planban.ai/). The Planban application and plugin live in the separate [Planban product repository](https://github.com/piercekearns/planban).
+This repository is the canonical source for [planban.ai](https://planban.ai/). The Planban application and plugin live in the separate [Planban product repository](https://github.com/planban-ai/planban).
 
 ## Local development
 

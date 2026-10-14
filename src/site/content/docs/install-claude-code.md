@@ -23,7 +23,7 @@ The board opens beside the session in the Claude Code desktop app, which provide
 Paste this prompt into a Claude Code session:
 
 ```text
-Install Planban from piercekearns/planban. Follow the Install With Claude Code details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the browser pane, then ask whether I want to set up Planban for a local project.
+Install Planban from planban-ai/planban. Follow the Install With Claude Code details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the browser pane, then ask whether I want to set up Planban for a local project.
 ```
 
 Claude runs the same commands as the manual install below, checks that the MCP server connects, opens the tutorial in the browser pane, and then asks whether to set up Planban for one of your projects.
@@ -33,7 +33,7 @@ Claude runs the same commands as the manual install below, checks that the MCP s
 Run these commands in a terminal:
 
 ```bash
-claude plugin marketplace add piercekearns/planban
+claude plugin marketplace add planban-ai/planban
 PLANBAN_ROOT="$HOME/.claude/plugins/marketplaces/planban"
 cd "$PLANBAN_ROOT"
 npm install
@@ -51,7 +51,7 @@ Then start a new Claude Code session. Keep the `PLANBAN_ROOT` folder in mind: th
 Clone the repository and add the clone as the marketplace when you want to run Planban from a checkout you control:
 
 ```bash
-git clone https://github.com/piercekearns/planban.git
+git clone https://github.com/planban-ai/planban.git
 cd planban
 npm install
 claude plugin marketplace add "$PWD"
