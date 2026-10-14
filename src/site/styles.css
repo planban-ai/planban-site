@@ -3113,6 +3113,26 @@ body {
     display: none;
   }
 
+  /* Equal side tracks keep the links in the true centre; on narrower computers GitHub shows as its icon. */
+  .pb-topbar {
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  }
+
+  @media (min-width: 981px) and (max-width: 1180px) {
+    .pb-header-actions .pb-icon-button span {
+      display: none;
+    }
+
+    .pb-nav.glass {
+      gap: 2px;
+    }
+
+    .pb-nav.glass a {
+      padding-left: 7px;
+      padding-right: 7px;
+    }
+  }
+
   .pb-hero-free {
     margin: 12px 0 0;
     color: var(--pb-muted);
