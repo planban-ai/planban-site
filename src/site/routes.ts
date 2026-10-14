@@ -145,11 +145,11 @@ export const siteRoutes: readonly SiteRoute[] = [
     id: "home",
     path: "/",
     outputFile: "index.html",
-    title: "Planban | One board for you and your agents",
+    title: "Planban: one board for you and your agents",
     description: planbanCanonicalDescription,
     socialTitle: "Planban: one board for you and your agents",
     ogDescription: planbanCanonicalDescription,
-    twitterDescription: "Ideas, to-dos, specs and plans in one place. Your agents read it, work from it and keep it up to date. Works with Codex and Claude Code.",
+    twitterDescription: "A Kanban board for you and your agents: ideas, to-dos, specs and plans in one place. Works with Codex and Claude Code.",
     indexable: true,
     sourceFiles: [
       ...sharedPageSources,

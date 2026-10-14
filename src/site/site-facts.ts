@@ -15,7 +15,7 @@ export const planbanXProfileUrl = "https://x.com/planbanai";
 
 /** Owner-approved canonical description of Planban. */
 export const planbanCanonicalDescription =
-  "Planban is one board for you and your agents: ideas, to-dos, specs and plans in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date.";
+  "Planban is a Kanban board for you and your agents: ideas, to-dos, specs and plans in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date.";
 
 /** Where people sign in to online boards, and sign up for them. */
 export const planbanSignInUrl = "https://app.planban.ai/sign-in";

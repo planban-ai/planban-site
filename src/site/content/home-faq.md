@@ -7,7 +7,7 @@ updated: 2026-09-30
 
 ## What is Planban?
 
-Planban is one board for you and your agents: ideas, to-dos, specs and plans for the whole project, in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date. You own intent, priority, and acceptance. It is free on your computer; take a board online when you want to share it.
+Planban is a Kanban board for you and your agents: ideas, to-dos, specs and plans for the whole project, in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date. You own intent, priority, and acceptance. It is free on your computer; take a board online when you want to share it.
 
 ## Do I need an account?
 
