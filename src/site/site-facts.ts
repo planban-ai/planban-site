@@ -15,7 +15,10 @@ export const planbanXProfileUrl = "https://x.com/planbanai";
 
 /** Owner-approved canonical description of Planban. */
 export const planbanCanonicalDescription =
-  "Planban is a local-first, agent-native Kanban board that installs as a plugin in Codex and Claude Code, so your agents keep the plan current and you see the whole project at a glance.";
+  "Planban is one board for you and your agents: ideas, to-dos, specs and plans in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date.";
+
+/** Where people sign in to online boards, and sign up for them. */
+export const planbanSignInUrl = "https://app.planban.ai/sign-in";
 
 export const planbanLogoUrl = `${siteOrigin}/assets/planban-logo-512.png`;
 export const planbanSocialImageUrl = `${siteOrigin}/assets/planban-social-preview.png`;

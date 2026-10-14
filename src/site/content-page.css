@@ -465,7 +465,7 @@
     text-underline-offset: 3px;
   }
 
-  /* Home page FAQ, on the accent band between Where it runs and the footer. */
+  /* Home page FAQ: its own section on the page background, one answer open at a time. */
   .pb-faq {
     position: relative;
     z-index: 1;
@@ -493,7 +493,7 @@
 
   .pb-faq-item h3 {
     margin: 0 0 10px;
-    color: #ffffff;
+    color: var(--pb-ink);
     font-size: 18px;
     line-height: 1.3;
   }
@@ -506,14 +506,69 @@
   }
 
   .pb-faq-item a {
-    color: #ffffff;
+    color: var(--pb-ink);
     text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.5);
+    text-decoration-color: color-mix(in oklab, var(--pb-ink) 45%, transparent);
     text-underline-offset: 3px;
   }
 
   .pb-faq-item a:hover {
     text-decoration-color: currentColor;
+  }
+
+  .pb-faq-list.is-collapsible {
+    display: block;
+    max-width: 780px;
+    margin: 40px auto 0;
+  }
+
+  .pb-faq-list.is-collapsible .pb-faq-item {
+    padding: 0;
+  }
+
+  .pb-faq-list.is-collapsible .pb-faq-item:last-child {
+    border-bottom: 1px solid var(--pb-divider-line);
+  }
+
+  .pb-faq-item summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 20px 2px;
+    list-style: none;
+    cursor: pointer;
+  }
+
+  .pb-faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .pb-faq-item summary h3 {
+    margin: 0;
+    font-size: 17px;
+  }
+
+  .pb-faq-chevron {
+    flex: 0 0 auto;
+    width: 18px;
+    height: 18px;
+    color: var(--pb-muted);
+    transition: transform 0.2s ease;
+  }
+
+  .pb-faq-item[open] .pb-faq-chevron {
+    transform: rotate(180deg);
+  }
+
+  .pb-faq-list.is-collapsible .pb-faq-item p {
+    padding: 0 34px 22px 2px;
+  }
+
+  .pb-faq-item summary:focus-visible {
+    outline: 2px solid var(--pb-codex-bright);
+    outline-offset: 2px;
+    border-radius: 6px;
   }
 
   @media (max-width: 760px) {
