@@ -28,6 +28,6 @@ Install Planban in each host you use. Each install is separate, but all installs
 
 ## Which version do these docs describe?
 
-These docs describe Planban v{{planbanVersion}}, the current release. Planban is open source under the MIT licence. It is not published to npm: you install it through the Codex or Claude Code plugin marketplace from [GitHub](https://github.com/piercekearns/planban).
+These docs describe Planban v{{planbanVersion}}, the current release. Planban is open source under the MIT licence. It is not published to npm: you install it through the Codex or Claude Code plugin marketplace from [GitHub](https://github.com/planban-ai/planban).
 
 Each page ends with the version it applies to and the date it was last updated. The [changelog](/docs/changelog/) lists every release.

@@ -28,7 +28,7 @@ If you ask Codex to install Planban, it checks these first. If Node.js or npm is
 Paste this prompt into a Codex thread:
 
 ```text
-Install Planban from piercekearns/planban. Follow the Install With Codex details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the Codex in-app browser, then ask whether I want to set up Planban for a local project.
+Install Planban from planban-ai/planban. Follow the Install With Codex details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the Codex in-app browser, then ask whether I want to set up Planban for a local project.
 ```
 
 Codex then follows the install steps written for it in the README:
@@ -48,7 +48,7 @@ Codex then follows the install steps written for it in the README:
 Run these commands in a terminal:
 
 ```bash
-codex plugin marketplace add piercekearns/planban
+codex plugin marketplace add planban-ai/planban
 PLANBAN_ROOT="$(codex plugin marketplace list | awk '$1 == "planban" { print $2 }')"
 cd "$PLANBAN_ROOT"
 npm install
@@ -67,7 +67,7 @@ The last command prints the local tutorial URL. Open it, or ask Codex to open it
 Run these commands in PowerShell:
 
 ```powershell
-codex plugin marketplace add piercekearns/planban
+codex plugin marketplace add planban-ai/planban
 $planbanRuntime = (codex plugin marketplace list --json | ConvertFrom-Json).marketplaces | Where-Object { $_.name -eq 'planban' } | Select-Object -ExpandProperty root
 Set-Location $planbanRuntime
 npm install
@@ -83,7 +83,7 @@ These do the same work as the macOS and Linux commands. The second line reads th
 Clone the repository and install from the clone when you want to run Planban from a checkout you control:
 
 ```bash
-git clone https://github.com/piercekearns/planban.git
+git clone https://github.com/planban-ai/planban.git
 cd planban
 npm install
 node scripts/configure-local-plugin.mjs "$PWD"

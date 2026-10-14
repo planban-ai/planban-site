@@ -45,9 +45,9 @@ const planbanXUrl = (import.meta.env.VITE_PLANBAN_X_URL as string | undefined) |
 const planbanYouTubeUrl = import.meta.env.VITE_PLANBAN_YOUTUBE_URL as string | undefined;
 const themeStorageKey = "planban-public-theme";
 const isThemeMode = (value: unknown): value is "system" | "light" | "dark" => value === "system" || value === "light" || value === "dark";
-const installPrompt = "Install Planban from piercekearns/planban. Follow the Install With Codex details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the Codex in-app browser, then ask whether I want to set up Planban for a local project.";
-const claudeInstallPrompt = "Install Planban from piercekearns/planban. Follow the Install With Claude Code details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the browser pane, then ask whether I want to set up Planban for a local project.";
-const codexInstallUrl = `codex://new?prompt=${encodeURIComponent(installPrompt)}&originUrl=${encodeURIComponent("https://github.com/piercekearns/planban")}`;
+const installPrompt = "Install Planban from planban-ai/planban. Follow the Install With Codex details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the Codex in-app browser, then ask whether I want to set up Planban for a local project.";
+const claudeInstallPrompt = "Install Planban from planban-ai/planban. Follow the Install With Claude Code details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the browser pane, then ask whether I want to set up Planban for a local project.";
+const codexInstallUrl = `codex://new?prompt=${encodeURIComponent(installPrompt)}&originUrl=${encodeURIComponent("https://github.com/planban-ai/planban")}`;
 const typedInstallCommand = "/planban";
 const installProofSteps = [{
   title: "Ask your agent to set it up",
@@ -309,7 +309,7 @@ const SubpageShell = ({
           <a href="/#faq">FAQ</a>
         </nav>
         <div className="pb-header-actions">
-          <a className="pb-icon-button" href="https://github.com/piercekearns/planban" aria-label="Open Planban on GitHub">
+          <a className="pb-icon-button" href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub">
             <GitHubIcon />
             <span>GitHub</span>
           </a>
@@ -331,7 +331,7 @@ const SubpageShell = ({
         <a href="/#faq">FAQ</a>
         <a href="/docs/changelog/">Changelog · v{planbanVersion}</a>
         <a href="/privacy/">Privacy</a>
-        <a href="https://github.com/piercekearns/planban/blob/main/LICENSE">MIT licence</a>
+        <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
       </nav>
     </footer>
   </div>;
@@ -873,7 +873,7 @@ export const PlanbanPublicWebsite = ({
               </button>
             </div>
             <a className="pb-version-pill" href={planbanReleaseUrl} aria-label={`Planban v${planbanVersion} release notes`}>v{planbanVersion}</a>
-            <a className="pb-icon-button" href="https://github.com/piercekearns/planban" aria-label="Open Planban on GitHub">
+            <a className="pb-icon-button" href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub">
               <GitHubIcon />
               <span>GitHub</span>
             </a>
@@ -893,7 +893,7 @@ export const PlanbanPublicWebsite = ({
             <span className="pb-menu-divider" aria-hidden="true" />
             <div className="pb-mobile-menu-bottom">
               <div className="pb-mobile-menu-socials" aria-label="Social links">
-                <a href="https://github.com/piercekearns/planban" aria-label="Open Planban on GitHub" onClick={() => setMobileMenuOpen(false)}><GitHubIcon /></a>
+                <a href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub" onClick={() => setMobileMenuOpen(false)}><GitHubIcon /></a>
                 {planbanXUrl ? <a href={planbanXUrl} aria-label="Follow Planban on X" onClick={() => setMobileMenuOpen(false)}><XIcon /></a> : null}
               </div>
               <div className="pb-theme-toggle pb-mobile-theme-toggle" role="group" aria-label="Theme">
@@ -1122,9 +1122,9 @@ export const PlanbanPublicWebsite = ({
           <a href="/what-is-an-agent-native-kanban-board/">What is agent-native Kanban?</a>
           <a href="/docs/">Docs</a>
           <a href="/docs/changelog/">Changelog · v{planbanVersion}</a>
-          <a href="https://github.com/piercekearns/planban/blob/main/PRODUCT.md">Product constitution</a>
+          <a href="https://github.com/planban-ai/planban/blob/main/PRODUCT.md">Product constitution</a>
           <a href="/privacy/">Privacy</a>
-          <a href="https://github.com/piercekearns/planban/blob/main/LICENSE">MIT licence</a>
+          <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
           <a className="pb-footer-credit" href="https://backpacker.gr/fonts/">Hellenica by backpacker.gr</a>
         </div>
         <form onSubmit={submitSignup} className="pb-footer-signup glass">
@@ -1146,7 +1146,7 @@ export const PlanbanPublicWebsite = ({
           {signupState === "unconfigured" ? <p className="pb-form-state neutral">Email capture is not connected in this preview. Follow GitHub for now.</p> : null}
           <p className="pb-form-note">Product updates only. Unsubscribe anytime.</p>
           <div className="pb-socials" aria-label="Social links">
-            <a href="https://github.com/piercekearns/planban" aria-label="Open Planban on GitHub"><GitHubIcon /></a>
+            <a href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub"><GitHubIcon /></a>
             {planbanXUrl ? <a href={planbanXUrl} aria-label="Follow Planban on X"><XIcon /></a> : null}
             {planbanYouTubeUrl ? <a href={planbanYouTubeUrl} aria-label="Watch Planban tutorials on YouTube"><YouTubeIcon /></a> : null}
           </div>

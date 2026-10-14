@@ -133,6 +133,6 @@ export const llmsOptionalLinks: ReadonlyArray<{ path: string } | { url: string; 
   { path: "/claude-code/" },
   { path: "/codex/" },
   { path: "/what-is-an-agent-native-kanban-board/" },
-  { url: "https://github.com/piercekearns/planban", title: "Planban on GitHub", note: "source, README and issues" },
-  { url: "https://github.com/piercekearns/planban/releases", title: "Earlier releases", note: "GitHub release notes for v1.0.0 to v1.1.5" },
+  { url: "https://github.com/planban-ai/planban", title: "Planban on GitHub", note: "source, README and issues" },
+  { url: "https://github.com/planban-ai/planban/releases", title: "Earlier releases", note: "GitHub release notes for v1.0.0 to v1.1.5" },
 ];

@@ -22,13 +22,13 @@ Ask Claude to install it with one prompt. Planban needs Node.js `>=22.12.0` and 
 Ask Claude Code:
 
 ```text
-Install Planban from piercekearns/planban. Follow the Install With Claude Code details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the browser pane, then ask whether I want to set up Planban for a local project.
+Install Planban from planban-ai/planban. Follow the Install With Claude Code details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the browser pane, then ask whether I want to set up Planban for a local project.
 ```
 
 If you prefer to run the commands yourself:
 
 ```bash
-claude plugin marketplace add piercekearns/planban
+claude plugin marketplace add planban-ai/planban
 PLANBAN_ROOT="$HOME/.claude/plugins/marketplaces/planban"
 cd "$PLANBAN_ROOT"
 npm install
@@ -83,4 +83,4 @@ Planban is built for one person directing project work with agents. If you need 
 
 Use the feedback button in the board toolbar, or run `/planban:planban-feedback`. Claude drafts a GitHub issue from your note and checks existing issues first. Nothing is filed publicly until you have reviewed it.
 
-You can also open an issue directly at https://github.com/piercekearns/planban/issues/new/choose. The full install guide, including the local clone and update steps, is in the [README on GitHub](https://github.com/piercekearns/planban#install-with-claude-code).
+You can also open an issue directly at https://github.com/planban-ai/planban/issues/new/choose. The full install guide, including the local clone and update steps, is in the [README on GitHub](https://github.com/planban-ai/planban#install-with-claude-code).

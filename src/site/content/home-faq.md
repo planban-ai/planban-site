@@ -19,7 +19,7 @@ Your planning data stays on your machine. Live board state lives under `~/.planb
 
 ## Is Planban free and open source?
 
-Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at piercekearns/planban. It is not published on npm; you install it from GitHub as a plugin.
+Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin.
 
 ## Does it replace Linear, Jira, or Trello?
 
@@ -35,4 +35,4 @@ Yes. Any host that can run a local stdio MCP server can use the same Planban too
 
 ## How do I install it?
 
-Ask your agent to install it with one prompt from the README, or run the commands yourself. In Claude Code the key commands are `claude plugin marketplace add piercekearns/planban` and `claude plugin install planban@planban`, and in Codex they are `codex plugin marketplace add piercekearns/planban` and `codex plugin add planban@planban`. Planban needs Node.js 22.12.0 or later, and the full steps are on the [Codex](/codex/) and [Claude Code](/claude-code/) pages.
+Ask your agent to install it with one prompt from the README, or run the commands yourself. In Claude Code the key commands are `claude plugin marketplace add planban-ai/planban` and `claude plugin install planban@planban`, and in Codex they are `codex plugin marketplace add planban-ai/planban` and `codex plugin add planban@planban`. Planban needs Node.js 22.12.0 or later, and the full steps are on the [Codex](/codex/) and [Claude Code](/claude-code/) pages.
