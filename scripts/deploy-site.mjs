@@ -1,8 +1,6 @@
 #!/usr/bin/env node
 import { spawnSync } from "node:child_process";
 
-const projectName = "planban-public-website";
-
 function run(command, args, options = {}) {
   const result = spawnSync(command, args, {
     cwd: process.cwd(),
@@ -49,8 +47,6 @@ run("npx", [
   "pages",
   "deploy",
   "dist/site",
-  "--project-name",
-  projectName,
   "--branch",
   branch,
 ]);
