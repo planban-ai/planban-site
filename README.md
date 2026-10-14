@@ -12,7 +12,7 @@ npm run site:preflight
 npm run site:preview -- --host 127.0.0.1 --port 4320
 ```
 
-`site:preflight` type-checks the site, builds `dist/site`, and audits the source, Pages Function, and generated output for private paths, secrets, and private-only content.
+`site:preflight` type-checks the site, builds `dist/site`, and audits the source and generated output for private paths, secrets, and private-only content. The audit also fails if an email sign-up form or a Pages Function returns.
 
 ## Pages and prerendering
 
@@ -36,9 +36,9 @@ The sitemap `lastmod` for each route is the date of the last commit touching its
 
 ## Deployment
 
-Pull requests and `main` must pass `npm run site:preflight`. A reviewed commit on `main` deploys to the existing `planban-public-website` Cloudflare Pages project through GitHub Actions. This preserves the existing domain, environment variables, Functions configuration, and deployment history without coupling website builds to Planban application releases.
+Pull requests and `main` must pass `npm run site:preflight`. A reviewed commit on `main` deploys through GitHub Actions to the Cloudflare Pages project named in `wrangler.jsonc`, `planban-website-recovery`, which serves planban.ai and www.planban.ai on the Planban Cloudflare account. The project name is written only in `wrangler.jsonc`; the workflow and `npm run site:deploy` both read it from there.
 
-The GitHub repository needs scoped `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` Actions secrets. Cloudflare's obsolete automatic builds from the Planban product repository must remain disabled after this workflow is enabled.
+The GitHub repository needs `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` Actions secrets for the Planban account, with the token limited to Cloudflare Pages: Edit. The older `planban-public-website` project, on the previous account, no longer serves the domain and must not be deployed to.
 
 The audited manual fallback is:
 
@@ -56,12 +56,6 @@ PLANBAN_SITE_DRY_RUN=1 npm run site:deploy
 
 ## Environment variables
 
-The email form uses these Cloudflare Pages variables:
-
-- `VITE_PLANBAN_SIGNUP_ENDPOINT=/api/subscribe`
-- `RESEND_API_KEY`
-- `RESEND_SEGMENT_ID`
-
-Optional public social URLs use `VITE_PLANBAN_X_URL` and `VITE_PLANBAN_YOUTUBE_URL`.
+The site has no email sign-up and needs no secret variables. Optional public social URLs use `VITE_PLANBAN_X_URL` and `VITE_PLANBAN_YOUTUBE_URL`.
 
 Do not commit credentials or local environment files.

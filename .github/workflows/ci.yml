@@ -73,7 +73,8 @@ jobs:
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist/site --project-name=planban-public-website --branch=main
+          # The Pages project name comes from wrangler.jsonc, the only place it is written.
+          command: pages deploy dist/site --branch=main
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify production commit
