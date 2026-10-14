@@ -32,7 +32,7 @@ async function readPublicPayload(response, html) {
 const requiredPatterns = [
   { name: "Planban page title", pattern: /<title>[^<]*Planban[^<]*<\/title>/iu },
   { name: "Planban heading or wordmark", pattern: /Planban/iu },
-  { name: "public GitHub link", pattern: /github\.com\/piercekearns\/planban/iu },
+  { name: "public GitHub link", pattern: /github\.com\/planban-ai\/planban/iu },
 ];
 
 let lastFailure = "Production did not respond.";

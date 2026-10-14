@@ -3,7 +3,7 @@ title: "Planban changelog | Planban docs"
 description: "Every public Planban release, newest first: what changed in the latest version, earlier releases back to v1.0.0, and how to update."
 path: /docs/changelog/
 updated: 2026-09-30
-sources: gh release list --repo piercekearns/planban; release/notes/*.md; release/latest.json (changelogSummary); src/site/releases.ts
+sources: gh release list --repo planban-ai/planban; release/notes/*.md; release/latest.json (changelogSummary); src/site/releases.ts
 ---
 
 # Planban changelog

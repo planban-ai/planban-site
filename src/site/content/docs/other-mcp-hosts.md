@@ -28,7 +28,7 @@ It does not get:
 Clone Planban and install its dependencies:
 
 ```bash
-git clone https://github.com/piercekearns/planban.git
+git clone https://github.com/planban-ai/planban.git
 cd planban
 npm install
 ```

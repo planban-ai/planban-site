@@ -7,10 +7,10 @@ export const siteUrl = `${siteOrigin}/`;
 
 /** The released Planban version shown in the header pill and structured data. */
 export const planbanVersion = "1.1.6";
-export const planbanReleaseUrl = `https://github.com/piercekearns/planban/releases/tag/v${planbanVersion}`;
-export const planbanReleasesUrl = "https://github.com/piercekearns/planban/releases";
-export const planbanRepositoryUrl = "https://github.com/piercekearns/planban";
-export const planbanLicenseUrl = "https://github.com/piercekearns/planban/blob/main/LICENSE";
+export const planbanReleaseUrl = `https://github.com/planban-ai/planban/releases/tag/v${planbanVersion}`;
+export const planbanReleasesUrl = "https://github.com/planban-ai/planban/releases";
+export const planbanRepositoryUrl = "https://github.com/planban-ai/planban";
+export const planbanLicenseUrl = "https://github.com/planban-ai/planban/blob/main/LICENSE";
 export const planbanXProfileUrl = "https://x.com/planbanai";
 
 /** Owner-approved canonical description of Planban. */
