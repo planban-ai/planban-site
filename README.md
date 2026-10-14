@@ -12,7 +12,7 @@ npm run site:preflight
 npm run site:preview -- --host 127.0.0.1 --port 4320
 ```
 
-`site:preflight` type-checks the site, builds `dist/site`, and audits the source, Pages Function, and generated output for private paths, secrets, and private-only content.
+`site:preflight` type-checks the site, builds `dist/site`, and audits the source and generated output for private paths, secrets, and private-only content. The audit also fails if an email sign-up form or a Pages Function returns.
 
 ## Pages and prerendering
 
@@ -56,12 +56,6 @@ PLANBAN_SITE_DRY_RUN=1 npm run site:deploy
 
 ## Environment variables
 
-The email form uses these Cloudflare Pages variables:
-
-- `VITE_PLANBAN_SIGNUP_ENDPOINT=/api/subscribe`
-- `RESEND_API_KEY`
-- `RESEND_SEGMENT_ID`
-
-Optional public social URLs use `VITE_PLANBAN_X_URL` and `VITE_PLANBAN_YOUTUBE_URL`.
+The site has no email sign-up and needs no secret variables. Optional public social URLs use `VITE_PLANBAN_X_URL` and `VITE_PLANBAN_YOUTUBE_URL`.
 
 Do not commit credentials or local environment files.
