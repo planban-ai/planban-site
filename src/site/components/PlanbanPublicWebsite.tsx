@@ -1,5 +1,5 @@
-import { type CSSProperties, type FormEvent, type PointerEvent, type ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
-import { ArrowUp, Menu } from "lucide-react";
+import { type CSSProperties, type PointerEvent, type ReactNode, useEffect, useLayoutEffect, useRef, useState } from "react";
+import { Menu } from "lucide-react";
 import { DemoBoard, DemoItemDetail, HeroLiveDemo } from "./HeroLiveDemo";
 import { OutcomeJourney } from "./OutcomeJourney";
 import { CheckIcon, CopyIcon, copyTextToClipboard } from "./copy";
@@ -40,7 +40,6 @@ const productImages = {
     cardDetail: cardDetailDarkImage
   }
 } as const;
-const planbanSignupEndpoint = (import.meta.env.VITE_PLANBAN_SIGNUP_ENDPOINT as string | undefined) || "/api/subscribe";
 const planbanXUrl = (import.meta.env.VITE_PLANBAN_X_URL as string | undefined) || "https://x.com/planbanai";
 const planbanYouTubeUrl = import.meta.env.VITE_PLANBAN_YOUTUBE_URL as string | undefined;
 const themeStorageKey = "planban-public-theme";
@@ -344,15 +343,11 @@ const PrivacyPolicyPage = ({
       <section className="pb-privacy-shell glass">
         <p className="pb-kicker">Privacy</p>
         <h1>Privacy Policy</h1>
-        <p className="pb-privacy-updated">Last updated: 30 September 2026</p>
+        <p className="pb-privacy-updated">Last updated: 13 October 2026</p>
         <div className="pb-privacy-content">
           <section>
             <h2>What Planban Collects</h2>
-            <p>The public website collects email addresses submitted through the update form so Planban can send product notes, tutorial drops, and platform updates.</p>
-          </section>
-          <section>
-            <h2>How Email Is Used</h2>
-            <p>Signup emails are used only for Planban updates. They are not sold or shared for advertising. You can unsubscribe from future broadcasts when an unsubscribe link is provided, or ask for removal directly.</p>
+            <p>The public website does not ask for your email address or offer a mailing list. To follow releases, watch <a href="https://github.com/planban-ai/planban">Planban on GitHub</a>.</p>
           </section>
           <section>
             <h2>Website Hosting</h2>
@@ -361,7 +356,7 @@ const PrivacyPolicyPage = ({
           </section>
           <section>
             <h2>Local Product Data</h2>
-            <p>Planban itself is designed around local planning state. The public website email form does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents.</p>
+            <p>Planban itself is designed around local planning state. The public website does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents.</p>
           </section>
           <section>
             <h2>Contact</h2>
@@ -416,8 +411,6 @@ export const PlanbanPublicWebsite = ({
     if (themeReady) document.documentElement.classList.remove("pb-theme-pending");
   }, [themeReady]);
   const [activeShot, setActiveShot] = useState(0);
-  const [email, setEmail] = useState("");
-  const [signupState, setSignupState] = useState<"idle" | "success" | "error" | "unconfigured" | "submitting">("idle");
   const [copyState, setCopyState] = useState<"idle" | "copied">("idle");
   const [installHost, setInstallHost] = useState<"codex" | "claude">("codex");
   const activeInstallPrompt = installHost === "claude" ? claudeInstallPrompt : installPrompt;
@@ -749,40 +742,6 @@ export const PlanbanPublicWebsite = ({
       typingTimers.forEach(timer => window.clearTimeout(timer));
     };
   }, []);
-  async function submitSignup(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setSignupState("error");
-      return;
-    }
-
-    if (!planbanSignupEndpoint) {
-      setSignupState("unconfigured");
-      return;
-    }
-
-    setSignupState("submitting");
-    try {
-      const response = await fetch(planbanSignupEndpoint, {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          source: "planban-public-website",
-        }),
-      });
-      if (response.ok) {
-        setEmail("");
-        setSignupState("success");
-      } else {
-        setSignupState("error");
-      }
-    } catch {
-      setSignupState("error");
-    }
-  }
   function updatePointer(event: PointerEvent<HTMLDivElement>) {
     const rect = event.currentTarget.getBoundingClientRect();
     const x = Math.round((event.clientX - rect.left) / rect.width * 100);
@@ -888,8 +847,6 @@ export const PlanbanPublicWebsite = ({
             <a href="#future" onClick={() => setMobileMenuOpen(false)}>Hosts</a>
             <a href="/docs/" onClick={() => setMobileMenuOpen(false)}>Docs</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
-            <span className="pb-menu-divider" aria-hidden="true" />
-            <a href="#updates" onClick={() => setMobileMenuOpen(false)}>Keep up to date</a>
             <span className="pb-menu-divider" aria-hidden="true" />
             <div className="pb-mobile-menu-bottom">
               <div className="pb-mobile-menu-socials" aria-label="Social links">
@@ -1106,11 +1063,16 @@ export const PlanbanPublicWebsite = ({
             <QuestionList document={homeFaq} />
           </section>
 
-          <footer id="updates" className="pb-footer pb-footer-on-accent">
+          <footer className="pb-footer pb-footer-on-accent">
         <div className="pb-footer-brand">
           <a className="pb-brand" href="#top" aria-label="Planban home">
             <PlanbanBrandLockup theme="dark" loading="lazy" />
           </a>
+          <div className="pb-socials pb-footer-socials" aria-label="Social links">
+            <a href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub"><GitHubIcon /></a>
+            {planbanXUrl ? <a href={planbanXUrl} aria-label="Follow Planban on X"><XIcon /></a> : null}
+            {planbanYouTubeUrl ? <a href={planbanYouTubeUrl} aria-label="Watch Planban tutorials on YouTube"><YouTubeIcon /></a> : null}
+          </div>
         </div>
         <div className="pb-footer-links">
           <a href="#install">Install</a>
@@ -1127,30 +1089,6 @@ export const PlanbanPublicWebsite = ({
           <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
           <a className="pb-footer-credit" href="https://backpacker.gr/fonts/">Hellenica by backpacker.gr</a>
         </div>
-        <form onSubmit={submitSignup} className="pb-footer-signup glass">
-          <div>
-            <strong>Keep up to date</strong>
-            <p>Release notes and platform updates. GitHub remains the reliable install and update source.</p>
-          </div>
-          <div className="pb-signup-row">
-            <input value={email} onChange={event => {
-            setEmail(event.target.value);
-            setSignupState("idle");
-          }} placeholder="you@example.com" aria-label="Email address" />
-            <button type="submit" className="pb-signup-submit" disabled={signupState === "submitting"} aria-label={signupState === "submitting" ? "Joining update list" : "Join update list"}>
-              <ArrowUp aria-hidden="true" strokeWidth={2.25} />
-            </button>
-          </div>
-          {signupState === "success" ? <p className="pb-form-state success">Thanks, you are on the update list.</p> : null}
-          {signupState === "error" ? <p className="pb-form-state error">Enter a valid email address or try again.</p> : null}
-          {signupState === "unconfigured" ? <p className="pb-form-state neutral">Email capture is not connected in this preview. Follow GitHub for now.</p> : null}
-          <p className="pb-form-note">Product updates only. Unsubscribe anytime.</p>
-          <div className="pb-socials" aria-label="Social links">
-            <a href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub"><GitHubIcon /></a>
-            {planbanXUrl ? <a href={planbanXUrl} aria-label="Follow Planban on X"><XIcon /></a> : null}
-            {planbanYouTubeUrl ? <a href={planbanYouTubeUrl} aria-label="Watch Planban tutorials on YouTube"><YouTubeIcon /></a> : null}
-          </div>
-        </form>
           </footer>
         </div>
       </main>
