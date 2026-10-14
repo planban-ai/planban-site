@@ -74,4 +74,4 @@ Planban v{{planbanVersion}} installs as a plugin in Codex and Claude Code. Any o
 
 - [Kanban board for Codex](/codex/)
 - [Kanban board for Claude Code](/claude-code/)
-- [Planban on GitHub](https://github.com/piercekearns/planban#readme)
+- [Planban on GitHub](https://github.com/planban-ai/planban#readme)

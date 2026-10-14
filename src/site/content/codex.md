@@ -22,13 +22,13 @@ Ask Codex to install it with one prompt. Planban needs Node.js `>=22.12.0` and n
 Ask Codex:
 
 ```text
-Install Planban from piercekearns/planban. Follow the Install With Codex details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the Codex in-app browser, then ask whether I want to set up Planban for a local project.
+Install Planban from planban-ai/planban. Follow the Install With Codex details in the public GitHub README exactly, verify the plugin and MCP tools work, open the interactive tutorial in the Codex in-app browser, then ask whether I want to set up Planban for a local project.
 ```
 
 If you prefer to run the commands yourself:
 
 ```bash
-codex plugin marketplace add piercekearns/planban
+codex plugin marketplace add planban-ai/planban
 PLANBAN_ROOT="$(codex plugin marketplace list | awk '$1 == "planban" { print $2 }')"
 cd "$PLANBAN_ROOT"
 npm install
@@ -73,7 +73,7 @@ Do not commit `~/.planban` to your project repo.
 
 ## Can I use Planban from other MCP hosts?
 
-Yes. Any host that can run a local stdio MCP server can use the same Planban tools without slash commands. You clone the repository, run `npm install`, and point the host at `plugins/planban/scripts/start-planban-mcp.mjs`. The agent gets the same tools and the same clickable board URLs, and the board opens as a link. The [Other hosts section of the README](https://github.com/piercekearns/planban#other-hosts) has the exact configuration.
+Yes. Any host that can run a local stdio MCP server can use the same Planban tools without slash commands. You clone the repository, run `npm install`, and point the host at `plugins/planban/scripts/start-planban-mcp.mjs`. The agent gets the same tools and the same clickable board URLs, and the board opens as a link. The [Other hosts section of the README](https://github.com/planban-ai/planban#other-hosts) has the exact configuration.
 
 ## What is not supported yet?
 
@@ -87,4 +87,4 @@ Planban is built for one person directing project work with agents. If you need 
 
 Use the feedback button in the board toolbar. Codex drafts a GitHub issue from your note and checks existing issues first. Nothing is filed publicly until you have reviewed it.
 
-You can also open an issue directly at https://github.com/piercekearns/planban/issues/new/choose. The full install guide, including update steps, is in the [README on GitHub](https://github.com/piercekearns/planban#install-with-codex).
+You can also open an issue directly at https://github.com/planban-ai/planban/issues/new/choose. The full install guide, including update steps, is in the [README on GitHub](https://github.com/planban-ai/planban#install-with-codex).

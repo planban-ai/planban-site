@@ -91,4 +91,4 @@ Run `/planban-feedback` in Codex or `/planban:planban-feedback` in Claude Code, 
 
 On the board, choose **Feedback / Bug** from the **More Board actions** menu. The dialog offers **Copy prompt** and **Open in Codex**. In Claude Code, choose **Copy prompt** and paste the prompt into your session.
 
-You can also open an issue directly at https://github.com/piercekearns/planban/issues/new/choose. Remove private board contents, local paths, logs and personal project details before posting publicly. Report security problems privately, as described in the [security policy](https://github.com/piercekearns/planban/security/policy).
+You can also open an issue directly at https://github.com/planban-ai/planban/issues/new/choose. Remove private board contents, local paths, logs and personal project details before posting publicly. Report security problems privately, as described in the [security policy](https://github.com/planban-ai/planban/security/policy).
