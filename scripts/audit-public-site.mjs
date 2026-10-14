@@ -8,7 +8,6 @@ const roots = auditRoots.length > 0
   ? auditRoots
   : [
     resolve(repoRoot, "src/site"),
-    resolve(repoRoot, "functions"),
     resolve(repoRoot, "dist/site"),
   ];
 
@@ -18,7 +17,6 @@ const requiredFiles = [
   "src/site/entry-server.tsx",
   "src/site/routes.ts",
   "src/site/components/PlanbanPublicWebsite.tsx",
-  "functions/api/subscribe.ts",
   "dist/site/index.html",
   "dist/site/privacy/index.html",
   "dist/site/claude-code/index.html",
@@ -62,6 +60,7 @@ const forbiddenFileNames = new Set([
 
 const forbiddenContent = [
   { name: "GitHub token", pattern: /gho_[A-Za-z0-9_]+/u },
+  { name: "email signup field or endpoint", pattern: /type="email"|aria-label="Email address"|\/api\/subscribe|Keep up to date/u },
   { name: "OpenAI-style secret key", pattern: /\bsk-(?:proj|live|test|admin|svcacct)-[A-Za-z0-9_-]{16,}/u },
   { name: "Planban launch token", pattern: /planban:[a-z0-9-]+:[0-9a-f-]{36}/iu },
   { name: "private user home path", pattern: /\/Users\/piercekearns/u },
@@ -133,6 +132,12 @@ for (const file of requiredFiles) {
   if (!(await pathExists(resolve(repoRoot, file)))) {
     findings.push({ type: "missing-required-file", path: file });
   }
+}
+
+// The site collects no addresses: no Functions, no signup form, no email field.
+if (await pathExists(resolve(repoRoot, "functions"))) findings.push({ type: "unexpected-functions", path: "functions" });
+for (const name of ["_worker.js", "_routes.json"]) {
+  if (await pathExists(resolve(repoRoot, "dist/site", name))) findings.push({ type: "unexpected-functions-output", path: `dist/site/${name}` });
 }
 
 for (const root of roots) {

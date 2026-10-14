@@ -652,7 +652,6 @@ body {
   .pb-lede,
   .pb-section-copy p:not(.pb-kicker),
   .pb-future p,
-  .pb-signup p,
   .pb-footer p {
     color: var(--pb-muted);
   }
@@ -1101,9 +1100,7 @@ body {
     background: var(--pb-line);
   }
 
-  .pb-terminal-card,
-  .pb-signup,
-  .pb-footer-signup {
+  .pb-terminal-card {
     border-radius: 14px;
     padding: 14px;
   }
@@ -1859,94 +1856,6 @@ body {
     margin-top: 26px;
   }
 
-  .pb-signup-row {
-    position: relative;
-    display: block;
-    width: 100%;
-  }
-
-  .pb-signup input,
-  .pb-footer-signup input {
-    width: 100%;
-    min-width: 0;
-    border: 1px solid var(--pb-line);
-    border-radius: 10px;
-    background: color-mix(in oklab, var(--pb-glass) 78%, transparent);
-    color: var(--pb-ink);
-    padding: 0 52px 0 14px;
-    min-height: 44px;
-    outline: none;
-  }
-
-  .pb-signup input:focus,
-  .pb-footer-signup input:focus {
-    border-color: color-mix(in oklab, var(--pb-codex) 58%, var(--pb-line));
-  }
-
-  .pb-signup-submit {
-    position: absolute;
-    top: 50%;
-    right: 5px;
-    display: grid;
-    width: 32px;
-    height: 32px;
-    place-items: center;
-    border: 0;
-    border-radius: 8px;
-    background: var(--pb-codex);
-    color: var(--pb-codex-ink);
-    cursor: pointer;
-    padding: 0;
-    transform: translateY(-50%);
-    transition: background 180ms ease, opacity 180ms ease, transform 180ms ease;
-  }
-
-  .pb-signup-submit:hover {
-    background: var(--pb-codex-deep);
-  }
-
-  .pb-signup-submit:focus-visible {
-    outline: 2px solid color-mix(in oklab, var(--pb-codex) 45%, transparent);
-    outline-offset: 2px;
-  }
-
-  .pb-signup-submit:disabled {
-    cursor: progress;
-    opacity: 0.72;
-  }
-
-  .pb-signup-submit svg {
-    width: 16px;
-    height: 16px;
-  }
-
-  .pb-form-state {
-    border-radius: 10px;
-    padding: 10px 12px;
-    font-size: 13px;
-  }
-
-  .pb-form-state.success {
-    color: var(--pb-codex);
-    background: color-mix(in oklab, var(--pb-codex-soft) 72%, transparent);
-    border: 1px solid color-mix(in oklab, var(--pb-codex) 28%, var(--pb-line));
-  }
-
-  .pb-site.dark .pb-form-state.success {
-    color: var(--pb-codex-bright);
-  }
-
-  .pb-form-state.error {
-    color: #ffb26d;
-    background: rgba(255, 178, 109, 0.13);
-  }
-
-  .pb-form-state.neutral {
-    color: var(--pb-muted);
-    background: color-mix(in oklab, var(--pb-glass) 78%, transparent);
-    border: 1px solid var(--pb-line);
-  }
-
   .pb-future-full {
     display: grid;
     justify-items: center;
@@ -2027,7 +1936,7 @@ body {
 
   .pb-footer {
     display: grid;
-    grid-template-columns: minmax(220px, 0.9fr) minmax(180px, 0.45fr) minmax(320px, 0.9fr);
+    grid-template-columns: minmax(220px, 0.9fr) minmax(180px, 1.35fr);
     align-items: start;
     gap: 36px;
     padding-top: 108px;
@@ -2050,6 +1959,10 @@ body {
     max-width: 320px;
   }
 
+  .pb-footer-socials {
+    margin-top: 18px;
+  }
+
   .pb-footer-brand p span {
     display: block;
   }
@@ -2062,31 +1975,6 @@ body {
 
   .pb-footer-links a:hover {
     color: var(--pb-ink);
-  }
-
-  .pb-footer-signup {
-    display: grid;
-    gap: 12px;
-    padding: 16px;
-    background: rgba(8, 23, 62, 0.34);
-    box-shadow: none;
-    backdrop-filter: none;
-  }
-
-  .pb-footer-signup strong {
-    display: block;
-    font-size: 15px;
-  }
-
-  .pb-footer-signup .pb-form-state {
-    margin: 0;
-  }
-
-  .pb-footer-signup .pb-form-note {
-    margin: -2px 0 0;
-    color: var(--pb-faint);
-    font-size: 12px;
-    line-height: 1.45;
   }
 
   .pb-privacy-page {
@@ -2424,8 +2312,7 @@ body {
     .pb-import-grid,
     .pb-context-visual,
     .pb-future,
-    .pb-footer,
-    .pb-signup {
+    .pb-footer {
       grid-template-columns: minmax(0, 1fr);
     }
 
@@ -2564,8 +2451,7 @@ body {
       padding-right: 16px;
     }
 
-    .pb-actions,
-    .pb-signup-row {
+    .pb-actions {
       width: 100%;
       align-items: stretch;
       flex-direction: column;
@@ -3091,18 +2977,8 @@ body {
       order: 1;
     }
 
-    .pb-footer-signup {
-      order: 2;
-      width: 100%;
-      padding: 18px;
-    }
-
-    .pb-footer-signup p {
-      max-width: 100%;
-    }
-
     .pb-footer-links {
-      order: 3;
+      order: 2;
       display: flex;
       flex-wrap: wrap;
       gap: 4px 16px;
