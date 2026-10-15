@@ -3176,6 +3176,12 @@ body {
     font-size: 14px;
   }
 
+  .pb-online-note a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
   /* Where it runs now sits on the page background; in light mode its cards need light colours (text colours are in hero-live.css). */
   .pb-site.light .pb-band-neutral .pb-platform-card {
     background: rgba(255, 255, 255, 0.7);

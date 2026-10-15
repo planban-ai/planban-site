@@ -2,7 +2,7 @@
 title: "Kanban board for Codex | Planban"
 description: "Planban is a local-first, agent-native Kanban board that installs as a Codex plugin. Codex keeps the plan current; you see the whole project."
 path: /codex/
-updated: 2026-09-30
+updated: 2026-10-15
 ---
 
 # Kanban board for Codex
@@ -77,9 +77,9 @@ Yes. Any host that can run a local stdio MCP server can use the same Planban too
 
 ## What is not supported yet?
 
-Online Mode is not available yet. It is in design, and will add remote access to your own board. Local Mode is complete and stays a permanent choice.
+Online boards arrived in Planban 2.0: see [Online boards](/docs/online-boards/) to share a board or open it in a browser, and Local Mode stays a permanent choice.
 
-The board opens beside the thread only in the Codex desktop app, which provides the in-app browser. Other hosts get the board as a link to open in your browser.
+The board opens beside the thread in the Codex desktop app, which provides the in-app browser, and beside the session in the Claude Code desktop app's browser pane. Other hosts get the board as a link to open in your browser.
 
 Planban is built for one person directing project work with agents. If you need a team project-management suite with sprints, roles, and reporting, Planban is not the right choice.
 

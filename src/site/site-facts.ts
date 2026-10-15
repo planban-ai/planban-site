@@ -6,7 +6,7 @@ export const siteOrigin = "https://planban.ai";
 export const siteUrl = `${siteOrigin}/`;
 
 /** The released Planban version shown in the header pill and structured data. */
-export const planbanVersion = "1.1.6";
+export const planbanVersion = "2.0.0";
 export const planbanReleaseUrl = `https://github.com/planban-ai/planban/releases/tag/v${planbanVersion}`;
 export const planbanReleasesUrl = "https://github.com/planban-ai/planban/releases";
 export const planbanRepositoryUrl = "https://github.com/planban-ai/planban";

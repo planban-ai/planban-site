@@ -2,7 +2,7 @@
 title: "Planban documentation | Planban"
 description: "Install Planban in Codex or Claude Code, learn how Items, Groups, Status, Specs and Plans work, and look up every CLI command and MCP tool."
 path: /docs/
-updated: 2026-09-30
+updated: 2026-10-15
 sources: README.md; plugins/planban/.claude-plugin/plugin.json; plugins/planban/.codex-plugin/plugin.json; src/site/site-facts.ts
 ---
 
@@ -10,7 +10,7 @@ sources: README.md; plugins/planban/.claude-plugin/plugin.json; plugins/planban/
 
 Planban documentation explains how to install Planban in Codex and Claude Code, how its board models work as Items, Groups, Status, Specs and Plans, and how agents use its CLI and MCP tools to keep that board current.
 
-Planban is a local-first, agent-native Kanban board. Your agent keeps the plan current as it works, and you see the whole project at a glance. Board state stays on your machine.
+Planban is a local-first, agent-native Kanban board. Your agent keeps the plan current as it works, and you see the whole project at a glance. Board state stays on your machine unless you take a board [online](/docs/online-boards/).
 
 ## Where do I start?
 

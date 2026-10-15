@@ -2,7 +2,7 @@
 title: "Planban FAQ"
 description: "Answers to common questions about Planban: accounts, supported agents, where data is stored, licence, offline use, other MCP hosts, and how to install."
 path: /
-updated: 2026-09-30
+updated: 2026-10-15
 ---
 
 ## What is Planban?
@@ -15,7 +15,7 @@ No. Planban works on your computer with no account. You only need a free account
 
 ## Which agents does it work with?
 
-Planban works with Codex and Claude today. In the Codex desktop app the board opens in the in-app browser with `/pb`, and in the Claude Code desktop app it opens in the browser pane with `/planban:pb`. Both installs share the same boards on your device.
+Planban works with Codex and Claude today. In the Codex desktop app the board opens in the in-app browser with `/pb`, and in the Claude Code desktop app it opens in the browser pane with `/planban:pb`. Both installs share the same boards on your device. ChatGPT and claude.ai can connect to a board you take online.
 
 ## Where is my planning data stored?
 
@@ -23,7 +23,7 @@ Boards on your computer stay there. Live board state lives under `~/.planban`, s
 
 ## Is Planban free and open source?
 
-Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin.
+Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin. Online boards are free at launch, with [usage limits](/docs/online-boards/#what-does-it-cost-and-what-are-the-limits).
 
 ## Does it replace Linear, Jira, or Trello?
 

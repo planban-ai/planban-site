@@ -2,7 +2,7 @@
 title: "What is an agent-native Kanban board? | Planban"
 description: "An agent-native Kanban board is one your AI agents keep current while you own intent, priority and acceptance. How it works, with Planban as the example."
 path: /what-is-an-agent-native-kanban-board/
-updated: 2026-09-30
+updated: 2026-10-15
 ---
 
 # What is an agent-native Kanban board?
@@ -54,7 +54,7 @@ A week later, a different thread or a different agent can pick up where things s
 
 ## Where does the data live?
 
-In Planban, planning state stays on your machine. Discovery files sit in `.planban/` in your repo, and live board state sits under `~/.planban`, separate from your source code. Local Mode is complete. Online Mode, which adds remote access to your own board, is in design.
+In Planban, planning state stays on your machine. Discovery files sit in `.planban/` in your repo, and live board state sits under `~/.planban`, separate from your source code. Local Mode is complete, and you can take a board online to share it or open it in a browser: see [Online boards](/docs/online-boards/).
 
 ## What is an agent-native Kanban board not?
 

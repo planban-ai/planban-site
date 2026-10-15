@@ -53,7 +53,7 @@ const installProofSteps = [{
   copy: "One prompt installs Planban and opens the interactive tutorial, in Codex or Claude."
 }, {
   title: "Open the board from any thread",
-  copy: "Type /planban in Codex, or /planban:pb in Claude Code, to bring the board to any thread."
+  copy: "Type /pb in Codex, or /planban:pb in Claude Code, to bring the board to any thread."
 }, {
   title: "Keep the work structured",
   copy: "Use Items for independent outcomes. Use Groups when several Items contribute to one larger outcome."
@@ -126,10 +126,10 @@ const underHoodItems = [{
 }] as const;
 const onlineBoardReasons = [{
   title: "Work together",
-  copy: "A co-founder or team works on the same board, each with their own agents and their own say over what those agents may do."
+  copy: "Invite editors or viewers by email or link. They need nothing installed, and each person chooses what their own agents may do."
 }, {
   title: "Use any device",
-  copy: "Open your board from another computer, or in any browser on your phone."
+  copy: "Open your board in any browser, on another computer or your phone, and see changes as they happen."
 }, {
   title: "Connect your AI apps",
   copy: "Let ChatGPT or Claude read and update the board, with your permission."
@@ -171,7 +171,7 @@ const ClaudeInstallIcon = () => <svg viewBox="0 0 100 100" aria-hidden="true" cl
     <g transform="translate(50 50) scale(0.6) translate(-50 -50)" fill="#D97757"><path d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z" /></g>
   </svg>;
 const HostCtas = ({
-  mobileNote = "Desktop only. Works with Codex and Claude."
+  mobileNote = "Install on a computer, with Codex or Claude. Online boards work on your phone."
 }: {
   mobileNote?: string;
 }) => <>
@@ -359,11 +359,11 @@ const PrivacyPolicyPage = ({
       <section className="pb-privacy-shell glass">
         <p className="pb-kicker">Privacy</p>
         <h1>Privacy Policy</h1>
-        <p className="pb-privacy-updated">Last updated: 13 October 2026</p>
+        <p className="pb-privacy-updated">Last updated: 15 October 2026</p>
         <div className="pb-privacy-content">
           <section>
             <h2>What Planban Collects</h2>
-            <p>The public website does not ask for your email address or offer a mailing list. To follow releases, watch <a href="https://github.com/planban-ai/planban">Planban on GitHub</a>.</p>
+            <p>The public website at planban.ai does not ask for your email address or offer a mailing list. To follow releases, watch <a href="https://github.com/planban-ai/planban">Planban on GitHub</a>.</p>
           </section>
           <section>
             <h2>Website Hosting</h2>
@@ -372,7 +372,18 @@ const PrivacyPolicyPage = ({
           </section>
           <section>
             <h2>Local Product Data</h2>
-            <p>Planban itself is designed around local planning state. The public website does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents.</p>
+            <p>Planban itself is designed around local planning state. The public website does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents. Boards on your computer are never sent to Planban unless you take one online.</p>
+          </section>
+          <section>
+            <h2>Accounts and Online Boards</h2>
+            <p>You need an account only to take a board online, or to open one that someone has shared with you. Online boards are served at app.planban.ai and stored by Planban's online service, which runs on <a href="https://www.convex.dev">Convex</a> behind Cloudflare.</p>
+            <p><strong>Your account.</strong> Sign-in is handled by <a href="https://clerk.com">Clerk</a>, with GitHub or a code sent to your email address. Planban keeps the name, picture and email address from your sign-in account so that people on boards you share can see who you are. Read <a href="https://clerk.com/legal/privacy">Clerk's privacy policy</a> for how Clerk handles sign-in data.</p>
+            <p><strong>Online board content.</strong> When you take a board online, its Items, Groups, Specs, Plans and history move to the online service, and your computer keeps a backup copy. Boards hold text only. Only the people on a board, and the apps and agents they connect within what they allow, can see it.</p>
+            <p><strong>History.</strong> Every change to an online board records who made it, whether it was them or their agent, and which app it came through.</p>
+            <p><strong>People and invitations.</strong> Planban stores who is on each board, their role, and what they let their agents do. An email invitation stores the invited email address, and Planban sends the invitation email through <a href="https://resend.com">Resend</a>. For invitation links, Planban keeps only a fingerprint of the link's secret.</p>
+            <p><strong>Sessions and connections.</strong> Planban records each computer, browser, app and access key signed in to your account, with its name, the app it belongs to, and when it was created and last used. For the sign-ins and keys it issues itself, Planban keeps only a fingerprint, never the key. You can see and cut off every connection in Connections. A browser stays signed in for at most 7 days.</p>
+            <p><strong>Usage.</strong> Planban counts how many changes each account makes and how much text it writes each day, to apply the usage limits.</p>
+            <p>When you take a board back to your computer, everyone else and their agents lose access, and the online copy stays in your account, read-only, for you. To delete your account, email <a href="mailto:hello@planban.ai">hello@planban.ai</a>.</p>
           </section>
           <section>
             <h2>Contact</h2>
@@ -1009,7 +1020,7 @@ export const PlanbanPublicWebsite = ({
             <article className="pb-info-card glass">
               <small className="pb-loop-step">You see</small>
               <strong>Where it is, what is stuck, and what needs your decision, live on the board.</strong>
-              <span>You steer from the board or the conversation. Only you mark work Complete.</span>
+              <span>You steer from the board or the conversation. Only a person on the board, or an agent they ask, marks work Complete.</span>
             </article>
           </div>
         </section>
@@ -1068,7 +1079,7 @@ export const PlanbanPublicWebsite = ({
               </article>)}
           </div>
           <a className="pb-button primary" href={planbanSignInUrl}>Sign up for online boards</a>
-          <p className="pb-online-note">Your other boards stay on your computer. You can bring an online board back at any time.</p>
+          <p className="pb-online-note">Free at launch, with <a href="/docs/online-boards/#what-does-it-cost-and-what-are-the-limits">usage limits</a>. Your other boards stay on your computer, and you can bring an online board back at any time.</p>
         </section>
 
         <section id="future" className="pb-future-full pb-band-neutral">
