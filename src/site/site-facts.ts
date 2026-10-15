@@ -29,7 +29,7 @@ export const planbanSocialImageUrl = `${siteOrigin}/assets/planban-social-previe
  */
 export const planbanFeatureList = [
   "One board for the whole project",
-  "Every Item, tracked as it happens",
+  "Every item, tracked as it happens",
   "Steer from any thread",
   "Scope and document each outcome",
   "Nothing lands until you approve it",

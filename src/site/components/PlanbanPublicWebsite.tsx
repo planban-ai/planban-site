@@ -322,10 +322,6 @@ const SubpageShell = ({
           <a href="/#faq">FAQ</a>
         </nav>
         <div className="pb-header-actions">
-          <a className="pb-icon-button" href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub">
-            <GitHubIcon />
-            <span>GitHub</span>
-          </a>
           <a className="pb-login" href={planbanSignInUrl}>Log in</a>
         </div>
         <a className="pb-login pb-login-mobile" href={planbanSignInUrl}>Log in</a>
@@ -358,20 +354,20 @@ const PrivacyPolicyPage = ({
 }) => <SubpageShell theme={theme}>
       <section className="pb-privacy-shell glass">
         <p className="pb-kicker">Privacy</p>
-        <h1>Privacy Policy</h1>
+        <h1>Privacy policy</h1>
         <p className="pb-privacy-updated">Last updated: 15 October 2026</p>
         <div className="pb-privacy-content">
           <section>
-            <h2>What Planban Collects</h2>
+            <h2>What Planban collects</h2>
             <p>The public website at planban.ai does not ask for your email address or offer a mailing list. To follow releases, watch <a href="https://github.com/planban-ai/planban">Planban on GitHub</a>.</p>
           </section>
           <section>
-            <h2>Website Hosting</h2>
+            <h2>Website hosting</h2>
             <p>Like most websites, Planban's public site may process standard request metadata needed to serve, cache, route, and protect the site, such as IP address, user agent, request path, and timing information.</p>
             <p>To understand how the site is used, Planban uses Umami Cloud, a cookieless analytics service operated by Umami Software, Inc. Umami does not set cookies, does not track visitors across websites, and does not store personal data. Planban only sees aggregated statistics such as page views, referring sites, browsers, operating systems, device types, and countries. Umami states that Umami Cloud servers are located in the EU and US. Read <a href="https://umami.is/privacy">Umami's privacy policy</a> for how Umami handles data.</p>
           </section>
           <section>
-            <h2>Local Product Data</h2>
+            <h2>Local product data</h2>
             <p>Planban itself is designed around local planning state. The public website does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents. Boards on your computer are never sent to Planban unless you take one online.</p>
           </section>
           <section>
@@ -848,21 +844,6 @@ export const PlanbanPublicWebsite = ({
             <a href="#faq">FAQ</a>
           </nav>
           <div className="pb-header-actions">
-            <div className="pb-theme-toggle" role="group" aria-label="Theme">
-              <button type="button" className={themeMode === "system" ? "active" : ""} onClick={() => setThemeMode("system")} aria-label="Use system theme" title="System">
-                <SystemIcon />
-              </button>
-              <button type="button" className={themeMode === "light" ? "active" : ""} onClick={() => setThemeMode("light")} aria-label="Use light theme" title="Light">
-                <SunIcon />
-              </button>
-              <button type="button" className={themeMode === "dark" ? "active" : ""} onClick={() => setThemeMode("dark")} aria-label="Use dark theme" title="Dark">
-                <MoonIcon />
-              </button>
-            </div>
-            <a className="pb-icon-button" href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub">
-              <GitHubIcon />
-              <span>GitHub</span>
-            </a>
             <a className="pb-login" href={planbanSignInUrl}>Log in</a>
           </div>
           <a className="pb-login pb-login-mobile" href={planbanSignInUrl}>Log in</a>
@@ -877,24 +858,6 @@ export const PlanbanPublicWebsite = ({
             <a href="/docs/" onClick={() => setMobileMenuOpen(false)}>Docs</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
             <a href={planbanSignInUrl} onClick={() => setMobileMenuOpen(false)}>Log in</a>
-            <span className="pb-menu-divider" aria-hidden="true" />
-            <div className="pb-mobile-menu-bottom">
-              <div className="pb-mobile-menu-socials" aria-label="Social links">
-                <a href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub" onClick={() => setMobileMenuOpen(false)}><GitHubIcon /></a>
-                {planbanXUrl ? <a href={planbanXUrl} aria-label="Follow Planban on X" onClick={() => setMobileMenuOpen(false)}><XIcon /></a> : null}
-              </div>
-              <div className="pb-theme-toggle pb-mobile-theme-toggle" role="group" aria-label="Theme">
-                <button type="button" className={themeMode === "system" ? "active" : ""} onClick={() => setThemeMode("system")} aria-label="Use system theme" title="System">
-                  <SystemIcon />
-                </button>
-                <button type="button" className={themeMode === "light" ? "active" : ""} onClick={() => setThemeMode("light")} aria-label="Use light theme" title="Light">
-                  <SunIcon />
-                </button>
-                <button type="button" className={themeMode === "dark" ? "active" : ""} onClick={() => setThemeMode("dark")} aria-label="Use dark theme" title="Dark">
-                  <MoonIcon />
-                </button>
-              </div>
-            </div>
           </div>
         </div>
       </header>
@@ -928,7 +891,7 @@ export const PlanbanPublicWebsite = ({
         <section id="outcomes" className="pb-outcomes pb-section-full pb-band-neutral" data-ascii-zone="true">
           <div className="pb-section-heading compact stacked">
             <div>
-              <h2>Every Item, tracked as it happens.</h2>
+              <h2>Every item, tracked as it happens.</h2>
             </div>
             <p>An Item is a feature, a bug, a release, a piece of research. Your agents scope it, plan it, build it, and keep its card current while they do. You see where it is and what needs you, the moment it changes.</p>
           </div>
@@ -1037,7 +1000,7 @@ export const PlanbanPublicWebsite = ({
           <div className="pb-import-grid">
             <div className="pb-import-copy">
               <article className="pb-info-card glass">
-                <strong>From context to Items</strong>
+                <strong>From context to items</strong>
                 <span>Turn scattered planning inputs into independent outcomes with clear titles, summaries, priorities, Specs, and next actions.</span>
               </article>
               <article className="pb-info-card glass">
@@ -1079,7 +1042,7 @@ export const PlanbanPublicWebsite = ({
                 <span>{reason.copy}</span>
               </article>)}
           </div>
-          <a className="pb-button primary" href={planbanSignInUrl}>Sign up for online boards</a>
+          <a className="pb-button pb-online-signup" href={planbanSignInUrl}>Sign up for online boards</a>
           <p className="pb-online-note">Your other boards stay on your computer. You can bring an online board back at any time.</p>
         </section>
 
@@ -1146,7 +1109,17 @@ export const PlanbanPublicWebsite = ({
         </nav>
         <div className="pb-footer-meta">
           <a href="/docs/changelog/">Changelog · v{planbanVersion}</a>
-          <a className="pb-footer-credit" href="https://backpacker.gr/fonts/">Hellenica by backpacker.gr</a>
+          <div className="pb-theme-toggle pb-footer-theme-toggle" role="group" aria-label="Theme">
+            <button type="button" className={themeMode === "system" ? "active" : ""} onClick={() => setThemeMode("system")} aria-label="Use system theme" title="System">
+              <SystemIcon />
+            </button>
+            <button type="button" className={themeMode === "light" ? "active" : ""} onClick={() => setThemeMode("light")} aria-label="Use light theme" title="Light">
+              <SunIcon />
+            </button>
+            <button type="button" className={themeMode === "dark" ? "active" : ""} onClick={() => setThemeMode("dark")} aria-label="Use dark theme" title="Dark">
+              <MoonIcon />
+            </button>
+          </div>
         </div>
           </footer>
         </div>
