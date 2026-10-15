@@ -23,7 +23,7 @@ Boards on your computer stay there. Live board state lives under `~/.planban`, s
 
 ## Is Planban free and open source?
 
-Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin. Online boards are free at launch, with [usage limits](/docs/online-boards/#what-does-it-cost-and-what-are-the-limits).
+Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin. Online boards are free too.
 
 ## Does it replace Linear, Jira, or Trello?
 

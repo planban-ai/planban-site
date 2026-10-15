@@ -1936,11 +1936,11 @@ body {
 
   .pb-footer {
     display: grid;
-    grid-template-columns: minmax(220px, 0.9fr) minmax(180px, 1.35fr);
+    grid-template-columns: minmax(200px, 0.8fr) minmax(0, 2.2fr);
     align-items: start;
-    gap: 36px;
-    padding-top: 108px;
-    padding-bottom: 72px;
+    gap: 32px 36px;
+    padding-top: 64px;
+    padding-bottom: 36px;
     border-top: 1px solid var(--pb-divider-line);
   }
 
@@ -1967,10 +1967,48 @@ body {
     display: block;
   }
 
+  /* Footer links: three short labelled groups, then one line for the changelog and credit. */
   .pb-footer-links {
     display: grid;
+    grid-template-columns: repeat(3, minmax(0, max-content));
+    justify-content: space-between;
+    gap: 24px 40px;
+  }
+
+  .pb-footer-group {
+    display: grid;
     justify-items: start;
+    align-content: start;
     gap: 10px;
+  }
+
+  .pb-footer .pb-footer-label {
+    margin: 0 0 2px;
+    color: var(--pb-faint);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  .pb-footer-meta {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px 24px;
+    padding-top: 20px;
+    border-top: 1px solid var(--pb-divider-line);
+  }
+
+  .pb-footer-meta a {
+    color: var(--pb-faint);
+    font-size: 13px;
+    text-decoration: none;
+  }
+
+  .pb-footer-meta a:hover {
+    color: var(--pb-ink);
   }
 
   .pb-footer-links a:hover {
@@ -2968,27 +3006,52 @@ body {
     }
 
     .pb-footer {
-      gap: 34px;
-      padding-top: 88px;
-      padding-bottom: 76px;
+      gap: 24px;
+      padding-top: 48px;
+      padding-bottom: 28px;
     }
 
     .pb-footer-brand {
       order: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
     }
 
+    .pb-footer-brand .pb-footer-socials {
+      margin-top: 0;
+    }
+
+    /* On a phone each group is a label and one wrapping line of links. */
     .pb-footer-links {
       order: 2;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 4px 16px;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 14px;
     }
 
-    .pb-footer-links a {
-      display: inline-flex;
-      min-width: 44px;
-      min-height: 44px;
+    .pb-footer-group {
+      display: flex;
+      flex-wrap: wrap;
       align-items: center;
+      gap: 0 16px;
+    }
+
+    .pb-footer .pb-footer-label {
+      flex-basis: 100%;
+      margin: 0;
+    }
+
+    .pb-footer-links a,
+    .pb-footer-meta a {
+      display: inline-flex;
+      min-height: 36px;
+      align-items: center;
+    }
+
+    .pb-footer-meta {
+      order: 3;
+      padding-top: 8px;
     }
 
     .pb-socials {

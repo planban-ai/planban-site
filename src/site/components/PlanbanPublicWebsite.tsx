@@ -1079,7 +1079,7 @@ export const PlanbanPublicWebsite = ({
               </article>)}
           </div>
           <a className="pb-button primary" href={planbanSignInUrl}>Sign up for online boards</a>
-          <p className="pb-online-note">Free at launch, with <a href="/docs/online-boards/#what-does-it-cost-and-what-are-the-limits">usage limits</a>. Your other boards stay on your computer, and you can bring an online board back at any time.</p>
+          <p className="pb-online-note">Your other boards stay on your computer. You can bring an online board back at any time.</p>
         </section>
 
         <section id="future" className="pb-future-full pb-band-neutral">
@@ -1120,20 +1120,31 @@ export const PlanbanPublicWebsite = ({
             {planbanYouTubeUrl ? <a href={planbanYouTubeUrl} aria-label="Watch Planban tutorials on YouTube"><YouTubeIcon /></a> : null}
           </div>
         </div>
-        <div className="pb-footer-links">
-          <a href="#install">Install</a>
-          <a href="#features">Features</a>
-          <a href="#online">Online boards</a>
-          <a href={planbanSignInUrl}>Log in</a>
-          <a href="#faq">FAQ</a>
-          <a href="/claude-code/">Planban for Claude Code</a>
-          <a href="/codex/">Planban for Codex</a>
-          <a href="/what-is-an-agent-native-kanban-board/">What is agent-native Kanban?</a>
-          <a href="/docs/">Docs</a>
+        <nav className="pb-footer-links" aria-label="Footer">
+          <div className="pb-footer-group">
+            <p className="pb-footer-label">Planban</p>
+            <a href="#install">Install</a>
+            <a href="#features">Features</a>
+            <a href="#online">Online boards</a>
+            <a href="#faq">FAQ</a>
+            <a href={planbanSignInUrl}>Log in</a>
+          </div>
+          <div className="pb-footer-group">
+            <p className="pb-footer-label">Guides</p>
+            <a href="/docs/">Docs</a>
+            <a href="/codex/">Planban for Codex</a>
+            <a href="/claude-code/">Planban for Claude Code</a>
+            <a href="/what-is-an-agent-native-kanban-board/">What is agent-native Kanban?</a>
+          </div>
+          <div className="pb-footer-group">
+            <p className="pb-footer-label">About</p>
+            <a href="https://github.com/planban-ai/planban/blob/main/PRODUCT.md">Product constitution</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
+          </div>
+        </nav>
+        <div className="pb-footer-meta">
           <a href="/docs/changelog/">Changelog · v{planbanVersion}</a>
-          <a href="https://github.com/planban-ai/planban/blob/main/PRODUCT.md">Product constitution</a>
-          <a href="/privacy/">Privacy</a>
-          <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
           <a className="pb-footer-credit" href="https://backpacker.gr/fonts/">Hellenica by backpacker.gr</a>
         </div>
           </footer>
