@@ -15,7 +15,7 @@ export function buildLlmsTxt(): string {
     "",
     `> ${planbanCanonicalDescription}`,
     "",
-    `Current version: ${planbanVersion}. MIT licence. Planban is not published to npm; install it through the Codex or Claude Code plugin marketplace from ${planbanRepositoryUrl}. Board state stays on your machine under ~/.planban.`,
+    `Current version: ${planbanVersion}. MIT licence. Planban is not published to npm; install it through the Codex or Claude Code plugin marketplace from ${planbanRepositoryUrl}. Boards on your computer stay there, under ~/.planban; a board you take online lives at app.planban.ai, visible only to the people you invite and the apps they connect.`,
   ];
   for (const section of docsSections) {
     const pages = section.id === "get-started" ? [docsIndexPage, ...section.pages] : section.pages;

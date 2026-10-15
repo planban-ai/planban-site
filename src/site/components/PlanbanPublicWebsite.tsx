@@ -6,7 +6,7 @@ import { CheckIcon, CopyIcon, copyTextToClipboard } from "./copy";
 import { type SiteRouteId, findSiteRoute } from "../routes";
 import homeFaq from "../content/home-faq.md";
 import { ContentPage, QuestionList } from "./ContentPage";
-import { planbanReleaseUrl, planbanVersion } from "../site-facts";
+import { planbanSignInUrl, planbanVersion } from "../site-facts";
 const planbanLogoImages = {
   light: "/assets/card-stack-black.svg",
   dark: "/assets/card-stack-white.svg"
@@ -53,7 +53,7 @@ const installProofSteps = [{
   copy: "One prompt installs Planban and opens the interactive tutorial, in Codex or Claude."
 }, {
   title: "Open the board from any thread",
-  copy: "Type /planban in Codex, or /planban:pb in Claude Code, to bring the board to any thread."
+  copy: "Type /planban in Codex, or /planban:planban in Claude Code, to bring the board to any thread."
 }, {
   title: "Keep the work structured",
   copy: "Use Items for independent outcomes. Use Groups when several Items contribute to one larger outcome."
@@ -119,10 +119,20 @@ const underHoodItems = [{
   copy: "The CLI gives agents stable local commands for setup, Status changes, moving Items into Groups, and documents. The API and MCP expose the same structured actions, so the UI is not the only way to manage the board."
 }, {
   title: "Local state",
-  copy: "Repo discovery stays in `.planban/`; live board state stays on your device, readable and writable by you and local agents."
+  copy: "Repo discovery stays in `.planban/`; live board state stays on your device, readable and writable by you and local agents, unless you take a board online."
 }, {
   title: "Portable references",
   copy: "Copy Reference puts one line on the clipboard: the Item's title and its planban: id. Paste it into any Codex or Claude thread and the agent resolves the board, Status, Spec, Plan, and next action instead of rediscovering the project."
+}] as const;
+const onlineBoardReasons = [{
+  title: "Work together",
+  copy: "Invite editors or viewers by email or link. They need nothing installed, and each person chooses what their own agents may do."
+}, {
+  title: "Use any device",
+  copy: "Open your board in any browser, on another computer or your phone, and see changes as they happen."
+}, {
+  title: "Connect your AI apps",
+  copy: "Let ChatGPT or Claude read and update the board, with your permission."
 }] as const;
 const CodexIcon = () => <svg viewBox="0 0 100 100" aria-hidden="true">
     <path d="M83.7733 42.8087C84.6678 40.1149 84.9771 37.2613 84.6807 34.4385C84.3843 31.6156 83.489 28.8885 82.0544 26.4394C77.6908 18.8436 68.9203 14.9365 60.3548 16.7725C57.9831 14.1344 54.9591 12.1668 51.5864 11.0673C48.2137 9.96772 44.611 9.77498 41.1402 10.5084C37.6694 11.2418 34.4527 12.8755 31.8132 15.2455C29.1736 17.6155 27.204 20.6383 26.1024 24.0103C23.3212 24.5806 20.6938 25.738 18.3958 27.405C16.0977 29.0721 14.1819 31.2104 12.7765 33.6772C8.36538 41.2609 9.3669 50.8267 15.2527 57.3327C14.3549 60.0251 14.0424 62.8782 14.3361 65.7012C14.6298 68.5241 15.523 71.2518 16.9558 73.7017C21.325 81.3002 30.1011 85.207 38.6712 83.3686C40.5554 85.4904 42.8707 87.1858 45.4623 88.3416C48.0539 89.4975 50.8622 90.0871 53.6999 90.0713C62.4793 90.079 70.2575 84.4114 72.9393 76.0515C75.7201 75.4802 78.347 74.3225 80.6449 72.6555C82.9427 70.9886 84.8587 68.8507 86.2649 66.3846C90.6227 58.8145 89.6172 49.3005 83.7733 42.8087ZM53.6999 84.8356C50.1955 84.8411 46.801 83.6129 44.1116 81.3661L44.5848 81.098L60.5123 71.9043C60.9087 71.6718 61.2379 71.3402 61.4674 70.942C61.6969 70.5439 61.8189 70.0929 61.8215 69.6333V47.1769L68.5553 51.072C68.6225 51.1063 68.6694 51.1707 68.6814 51.2456V69.854C68.6641 78.1208 61.9667 84.8183 53.6999 84.8356ZM21.4977 71.0843C19.7402 68.0497 19.1092 64.4925 19.7156 61.0386L20.1885 61.3225L36.1321 70.5165C36.5266 70.748 36.9757 70.87 37.4331 70.87C37.8905 70.87 38.3396 70.748 38.7341 70.5165L58.21 59.2883V67.0628C58.2081 67.1031 58.1973 67.1424 58.1782 67.1779C58.1591 67.2134 58.1322 67.2441 58.0996 67.2678L41.9671 76.5722C34.798 80.7022 25.6388 78.2463 21.4977 71.0843ZM17.3026 36.3898C19.0723 33.3357 21.8655 31.0062 25.1878 29.8138V48.7376C25.1818 49.1949 25.2986 49.6453 25.5261 50.042C25.7535 50.4387 26.0833 50.7671 26.4809 50.9928L45.8622 62.1739L39.1283 66.069C39.0919 66.0883 39.0513 66.0984 39.0101 66.0984C38.9689 66.0984 38.9283 66.0883 38.8919 66.069L22.7908 56.7809C15.6359 52.6337 13.1822 43.4816 17.3026 36.3112V36.3898ZM72.624 49.2426L53.1792 37.9512L59.8976 34.0718C59.9341 34.0524 59.9747 34.0423 60.016 34.0423C60.0573 34.0423 60.0979 34.0524 60.1344 34.0718L76.2355 43.3761C78.6973 44.7966 80.7043 46.8882 82.0221 49.4065C83.3398 51.9249 83.914 54.7661 83.6775 57.5985C83.4411 60.431 82.4038 63.1377 80.6867 65.4027C78.9696 67.6677 76.6436 69.3975 73.9803 70.3901V51.466C73.9663 51.0096 73.834 50.5647 73.5962 50.1749C73.3584 49.7851 73.0234 49.4638 72.624 49.2426ZM79.3261 39.1657L78.8529 38.8815L62.9411 29.6089C62.5442 29.376 62.0924 29.2532 61.6322 29.2532C61.172 29.2532 60.7202 29.376 60.3233 29.6089L40.8629 40.8374V33.0628C40.8587 33.0233 40.8654 32.9834 40.882 32.9473C40.8987 32.9113 40.9248 32.8803 40.9575 32.8579L57.0586 23.5692C59.5263 22.1476 62.3478 21.458 65.193 21.5811C68.0382 21.7042 70.7896 22.6348 73.1253 24.2642C75.461 25.8936 77.2845 28.1543 78.3825 30.782C79.4806 33.4097 79.8077 36.2957 79.3257 39.1025V39.1657H79.3261ZM37.1888 52.9484L30.455 49.069C30.4213 49.0487 30.3925 49.0212 30.3707 48.9884C30.3488 48.9557 30.3345 48.9186 30.3286 48.8797V30.3188C30.3323 27.4714 31.1466 24.6839 32.6761 22.2822C34.2057 19.8805 36.3874 17.9639 38.9661 16.7564C41.5448 15.549 44.4139 15.1005 47.2381 15.4636C50.0622 15.8267 52.7247 16.9862 54.9141 18.8067L54.4409 19.0748L38.5134 28.2686C38.117 28.5011 37.7879 28.8327 37.5584 29.2308C37.329 29.629 37.207 30.0799 37.2045 30.5395L37.1888 52.9487V52.9484ZM40.8472 45.0632L49.5209 40.0643L58.21 45.0635V55.0615L49.5523 60.0608L40.8632 55.0615L40.8472 45.0632Z" fill="currentColor" />
@@ -160,7 +170,11 @@ const ClaudeInstallIcon = () => <svg viewBox="0 0 100 100" aria-hidden="true" cl
     <circle cx="50" cy="50" r="50" fill="#ffffff" />
     <g transform="translate(50 50) scale(0.6) translate(-50 -50)" fill="#D97757"><path d="m19.6 66.5 19.7-11 .3-1-.3-.5h-1l-3.3-.2-11.2-.3L14 53l-9.5-.5-2.4-.5L0 49l.2-1.5 2-1.3 2.9.2 6.3.5 9.5.6 6.9.4L38 49.1h1.6l.2-.7-.5-.4-.4-.4L29 41l-10.6-7-5.6-4.1-3-2-1.5-2-.6-4.2 2.7-3 3.7.3.9.2 3.7 2.9 8 6.1L37 36l1.5 1.2.6-.4.1-.3-.7-1.1L33 25l-6-10.4-2.7-4.3-.7-2.6c-.3-1-.4-2-.4-3l3-4.2L28 0l4.2.6L33.8 2l2.6 6 4.1 9.3L47 29.9l2 3.8 1 3.4.3 1h.7v-.5l.5-7.2 1-8.7 1-11.2.3-3.2 1.6-3.8 3-2L61 2.6l2 2.9-.3 1.8-1.1 7.7L59 27.1l-1.5 8.2h.9l1-1.1 4.1-5.4 6.9-8.6 3-3.5L77 13l2.3-1.8h4.3l3.1 4.7-1.4 4.9-4.4 5.6-3.7 4.7-5.3 7.1-3.2 5.7.3.4h.7l12-2.6 6.4-1.1 7.6-1.3 3.5 1.6.4 1.6-1.4 3.4-8.2 2-9.6 2-14.3 3.3-.2.1.2.3 6.4.6 2.8.2h6.8l12.6 1 3.3 2 1.9 2.7-.3 2-5.1 2.6-6.8-1.6-16-3.8-5.4-1.3h-.8v.4l4.6 4.5 8.3 7.5L89 80.1l.5 2.4-1.3 2-1.4-.2-9.2-7-3.6-3-8-6.8h-.5v.7l1.8 2.7 9.8 14.7.5 4.5-.7 1.4-2.6 1-2.7-.6-5.8-8-6-9-4.7-8.2-.5.4-2.9 30.2-1.3 1.5-3 1.2-2.5-2-1.4-3 1.4-6.2 1.6-8 1.3-6.4 1.2-7.9.7-2.6v-.2H49L43 72l-9 12.3-7.2 7.6-1.7.7-3-1.5.3-2.8L24 86l10-12.8 6-7.9 4-4.6-.1-.5h-.3L17.2 77.4l-4.7.6-2-2 .2-3 1-1 8-5.5Z" /></g>
   </svg>;
-const HostCtas = () => <>
+const HostCtas = ({
+  mobileNote = "Install on a computer, with Codex or Claude. Online boards work on your phone."
+}: {
+  mobileNote?: string;
+}) => <>
     <a className="pb-button primary pb-install-with-codex pb-desktop-codex-cta" href={codexInstallUrl}>
       <span className="pb-button-icon"><CodexInstallIcon /></span>
       Install with Codex
@@ -173,7 +187,7 @@ const HostCtas = () => <>
       <span className="pb-button-icon"><CodexInstallIcon /></span>
       Install with Codex
     </button>
-    <span className="pb-install-mobile-note">Desktop only. Works with Codex and Claude.</span>
+    <span className="pb-install-mobile-note">{mobileNote}</span>
   </>;
 const GlobeIcon = () => <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <circle cx="12" cy="12" r="10" />
@@ -187,7 +201,7 @@ const hostPlatforms = [{
   title: "Codex desktop",
   status: "Available",
   tone: "ok",
-  copy: "Board in the in-app browser. /pb, /planban, /planban-create.",
+  copy: "Board in the in-app browser. /planban, /planban-create and friends.",
   href: "/codex/",
   linkLabel: "Codex guide",
   icon: <AgentLogo src={agentLogoImages.codex} label="codex" loading="lazy" />
@@ -195,7 +209,7 @@ const hostPlatforms = [{
   title: "Claude Code desktop",
   status: "Available",
   tone: "ok",
-  copy: "Board in the browser pane. /planban:pb and friends.",
+  copy: "Board in the browser pane. /planban:planban and friends.",
   href: "/claude-code/",
   linkLabel: "Claude Code guide",
   icon: <AgentLogo src={agentLogoImages.claude} label="claude" loading="lazy" />
@@ -208,10 +222,10 @@ const hostPlatforms = [{
   linkLabel: "MCP host guide",
   icon: <span className="pb-platform-text-icon" aria-hidden="true">MCP</span>
 }, {
-  title: "Online Mode",
-  status: "In design",
+  title: "Online boards",
+  status: "Available",
   tone: "neutral",
-  copy: "Remote access to your own board. Local Mode stays complete and permanent.",
+  copy: "ChatGPT and claude.ai connect at app.planban.ai/mcp. Local boards stay complete and need no account.",
   icon: <GlobeIcon />
 }] as const;
 const PlanbanMark = ({
@@ -245,8 +259,8 @@ const SlashCommandMockup = ({
   theme: "light" | "dark";
 }) => <div className="pb-command-mockup">
     <div className="pb-command-hosts" aria-hidden="true">
-      <span className="active"><img src={agentLogoImages.codex} alt="" width={13} height={13} />Codex · /pb</span>
-      <span><img src={agentLogoImages.claude} alt="" width={13} height={13} />Claude · /planban:pb</span>
+      <span className="active"><img src={agentLogoImages.codex} alt="" width={13} height={13} />Codex · /planban</span>
+      <span><img src={agentLogoImages.claude} alt="" width={13} height={13} />Claude · /planban:planban</span>
     </div>
     <div className="pb-command-menu glass">
       {["Planban", "Planban Help", "Planban Create", "Planban Feedback", "Planban Tutorial"].map((label, index) => <div className={`pb-command-row ${index === 0 ? "active" : ""}`} key={label}>
@@ -303,16 +317,14 @@ const SubpageShell = ({
         <nav className="pb-nav glass" aria-label="Primary">
           <a href="/#install">Install</a>
           <a href="/#features">Features</a>
-          <a href="/#future">Hosts</a>
+          <a href="/#online">Online boards</a>
           <a href="/docs/">Docs</a>
           <a href="/#faq">FAQ</a>
         </nav>
         <div className="pb-header-actions">
-          <a className="pb-icon-button" href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub">
-            <GitHubIcon />
-            <span>GitHub</span>
-          </a>
+          <a className="pb-login" href={planbanSignInUrl}>Log in</a>
         </div>
+        <a className="pb-login pb-login-mobile" href={planbanSignInUrl}>Log in</a>
       </div>
     </header>
 
@@ -342,21 +354,35 @@ const PrivacyPolicyPage = ({
 }) => <SubpageShell theme={theme}>
       <section className="pb-privacy-shell glass">
         <p className="pb-kicker">Privacy</p>
-        <h1>Privacy Policy</h1>
-        <p className="pb-privacy-updated">Last updated: 13 October 2026</p>
+        <h1>Privacy policy</h1>
+        <p className="pb-privacy-updated">Last updated: 15 October 2026</p>
         <div className="pb-privacy-content">
           <section>
-            <h2>What Planban Collects</h2>
-            <p>The public website does not ask for your email address or offer a mailing list. To follow releases, watch <a href="https://github.com/planban-ai/planban">Planban on GitHub</a>.</p>
+            <h2>What Planban collects</h2>
+            <p>The public website at planban.ai does not ask for your email address or offer a mailing list. To follow releases, watch <a href="https://github.com/planban-ai/planban">Planban on GitHub</a>.</p>
           </section>
           <section>
-            <h2>Website Hosting</h2>
+            <h2>Website hosting</h2>
             <p>Like most websites, Planban's public site may process standard request metadata needed to serve, cache, route, and protect the site, such as IP address, user agent, request path, and timing information.</p>
             <p>To understand how the site is used, Planban uses Umami Cloud, a cookieless analytics service operated by Umami Software, Inc. Umami does not set cookies, does not track visitors across websites, and does not store personal data. Planban only sees aggregated statistics such as page views, referring sites, browsers, operating systems, device types, and countries. Umami states that Umami Cloud servers are located in the EU and US. Read <a href="https://umami.is/privacy">Umami's privacy policy</a> for how Umami handles data.</p>
           </section>
           <section>
-            <h2>Local Product Data</h2>
-            <p>Planban itself is designed around local planning state. The public website does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents.</p>
+            <h2>Local product data</h2>
+            <p>Planban itself is designed around local planning state. The public website does not receive your boards, Items, Groups, Specs, Plans, repository paths, or local project contents. Boards on your computer are never sent to Planban unless you take one online.</p>
+          </section>
+          <section>
+            <h2>Accounts and Online Boards</h2>
+            <p>You need an account only to take a board online, or to open one that someone has shared with you. Online boards are served at app.planban.ai through Cloudflare. Online boards and the account data Planban keeps are stored in the EU, in Ireland, by <a href="https://www.convex.dev">Convex</a>, which runs Planban's online service.</p>
+            <p><strong>Your account.</strong> Sign-in is handled by <a href="https://clerk.com">Clerk</a>, with GitHub or a code sent to your email address. Planban keeps the name, picture and email address from your sign-in account so that people on boards you share can see who you are. Read <a href="https://clerk.com/legal/privacy">Clerk's privacy policy</a> for how Clerk handles sign-in data.</p>
+            <p><strong>Online board content.</strong> When you take a board online, its Items, Groups, Specs, Plans and history move to the online service, and your computer keeps a backup copy. Boards hold text only. Only the people on a board, and the apps and agents they connect within what they allow, can see it.</p>
+            <p><strong>History.</strong> Every change to an online board records who made it, whether it was them or their agent, and which app it came through.</p>
+            <p><strong>People and invitations.</strong> Planban stores who is on each board, their role, and what they let their agents do. An email invitation stores the invited email address, and Planban sends the invitation email through <a href="https://resend.com">Resend</a>. For invitation links, Planban keeps only a fingerprint of the link's secret.</p>
+            <p><strong>Sessions and connections.</strong> Planban records each computer, browser, app and access key signed in to your account, with its name, the app it belongs to, and when it was created and last used. For the sign-ins and keys it issues itself, Planban keeps only a fingerprint, never the key. You can see and cut off every connection in Connections. A browser stays signed in for at most 7 days.</p>
+            <p><strong>Cookies.</strong> app.planban.ai uses only cookies needed for sign-in: Planban's own sign-in session cookie, and Clerk's sign-in cookies. It uses no analytics or tracking cookies.</p>
+            <p><strong>Usage.</strong> Planban counts how many changes each account makes and how much text it writes each day, to apply the usage limits.</p>
+            <p><strong>Boards you take back to your computer.</strong> When you take a board back to your computer, everyone else and their agents lose access, and the online copy stays in your account as a read-only copy until you delete it. To delete it for good, open it on the web page and choose <strong>Delete online copy</strong> in Board settings. The board on your computer is not affected.</p>
+            <p><strong>Deleting your account.</strong> To delete your account, email <a href="mailto:hello@planban.ai">hello@planban.ai</a>. Within 30 days of your request, Planban deletes the online boards you own, with their members, invitations and history, along with your sessions, connections, access keys and sign-in account. Changes you made on other people's boards stay part of those boards, credited to "a deleted account".</p>
+            <p><strong>Backups.</strong> Planban's database plan keeps no automatic backups. If a backup is ever made by hand, it expires after 7 days.</p>
           </section>
           <section>
             <h2>Contact</h2>
@@ -815,28 +841,14 @@ export const PlanbanPublicWebsite = ({
             <a href="#install">Install</a>
             <a href="#features">Features</a>
             <a href="#loop">How it works</a>
-            <a href="#future">Hosts</a>
+            <a href="#online">Online boards</a>
             <a href="/docs/">Docs</a>
             <a href="#faq">FAQ</a>
           </nav>
           <div className="pb-header-actions">
-            <div className="pb-theme-toggle" role="group" aria-label="Theme">
-              <button type="button" className={themeMode === "system" ? "active" : ""} onClick={() => setThemeMode("system")} aria-label="Use system theme" title="System">
-                <SystemIcon />
-              </button>
-              <button type="button" className={themeMode === "light" ? "active" : ""} onClick={() => setThemeMode("light")} aria-label="Use light theme" title="Light">
-                <SunIcon />
-              </button>
-              <button type="button" className={themeMode === "dark" ? "active" : ""} onClick={() => setThemeMode("dark")} aria-label="Use dark theme" title="Dark">
-                <MoonIcon />
-              </button>
-            </div>
-            <a className="pb-version-pill" href={planbanReleaseUrl} aria-label={`Planban v${planbanVersion} release notes`}>v{planbanVersion}</a>
-            <a className="pb-icon-button" href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub">
-              <GitHubIcon />
-              <span>GitHub</span>
-            </a>
+            <a className="pb-login" href={planbanSignInUrl}>Log in</a>
           </div>
+          <a className="pb-login pb-login-mobile" href={planbanSignInUrl}>Log in</a>
           <button type="button" className="pb-mobile-menu-button" aria-expanded={mobileMenuOpen} aria-controls="mobile-menu" aria-label="Open menu" onClick={() => setMobileMenuOpen(open => !open)}>
             <Menu aria-hidden="true" strokeWidth={2} />
           </button>
@@ -844,27 +856,10 @@ export const PlanbanPublicWebsite = ({
             <p className="pb-kicker">Menu</p>
             <a href="#install" onClick={() => setMobileMenuOpen(false)}>Install</a>
             <a href="#features" onClick={() => setMobileMenuOpen(false)}>Features</a>
-            <a href="#future" onClick={() => setMobileMenuOpen(false)}>Hosts</a>
+            <a href="#online" onClick={() => setMobileMenuOpen(false)}>Online boards</a>
             <a href="/docs/" onClick={() => setMobileMenuOpen(false)}>Docs</a>
             <a href="#faq" onClick={() => setMobileMenuOpen(false)}>FAQ</a>
-            <span className="pb-menu-divider" aria-hidden="true" />
-            <div className="pb-mobile-menu-bottom">
-              <div className="pb-mobile-menu-socials" aria-label="Social links">
-                <a href="https://github.com/planban-ai/planban" aria-label="Open Planban on GitHub" onClick={() => setMobileMenuOpen(false)}><GitHubIcon /></a>
-                {planbanXUrl ? <a href={planbanXUrl} aria-label="Follow Planban on X" onClick={() => setMobileMenuOpen(false)}><XIcon /></a> : null}
-              </div>
-              <div className="pb-theme-toggle pb-mobile-theme-toggle" role="group" aria-label="Theme">
-                <button type="button" className={themeMode === "system" ? "active" : ""} onClick={() => setThemeMode("system")} aria-label="Use system theme" title="System">
-                  <SystemIcon />
-                </button>
-                <button type="button" className={themeMode === "light" ? "active" : ""} onClick={() => setThemeMode("light")} aria-label="Use light theme" title="Light">
-                  <SunIcon />
-                </button>
-                <button type="button" className={themeMode === "dark" ? "active" : ""} onClick={() => setThemeMode("dark")} aria-label="Use dark theme" title="Dark">
-                  <MoonIcon />
-                </button>
-              </div>
-            </div>
+            <a href={planbanSignInUrl} onClick={() => setMobileMenuOpen(false)}>Log in</a>
           </div>
         </div>
       </header>
@@ -873,15 +868,16 @@ export const PlanbanPublicWebsite = ({
         <section className="pb-hero pb-band-neutral" data-ascii-zone="true">
           <div className="pb-hero-copy">
             <h1>
-              <span>Your agents' plan,</span>{" "}
-              <span className="pb-hero-accent">in plain sight.</span>
+              <span>One board for you</span>{" "}
+              <span className="pb-hero-accent">and your agents.</span>
             </h1>
             <p className="pb-lede">
-              Give your agents real work: features, bugs, releases, research. Planban is the live board where they scope it, plan it, build it, and keep it current as they go, so you always see where every project is up to and what needs you.
+              Ideas, to-dos, specs and plans in one place. Your agents read it, work from it and keep it up to date.
             </p>
             <div className="pb-actions">
-              <HostCtas />
+              <HostCtas mobileNote="Free on your computer. No account needed." />
             </div>
+            <p className="pb-hero-free">Free, and it runs on your computer. No account needed.</p>
           </div>
 
           <div className="pb-hero-visual">
@@ -897,14 +893,14 @@ export const PlanbanPublicWebsite = ({
         <section id="outcomes" className="pb-outcomes pb-section-full pb-band-neutral" data-ascii-zone="true">
           <div className="pb-section-heading compact stacked">
             <div>
-              <h2>Every Item, tracked as it happens.</h2>
+              <h2>Every item, tracked as it happens.</h2>
             </div>
             <p>An Item is a feature, a bug, a release, a piece of research. Your agents scope it, plan it, build it, and keep its card current while they do. You see where it is and what needs you, the moment it changes.</p>
           </div>
           <OutcomeJourney />
           <p className="pb-journey-note"><strong>Planban does not write the code or make the plan. Codex and Claude do.</strong> Planban is the always-accurate picture of that work, living beside you and your agents, kept true in real time.</p>
         </section>
-        <section id="install" className="pb-install-proof pb-band-neutral" data-ascii-zone="true">
+        <section id="install" className="pb-install-proof pb-band-accent" data-ascii-zone="true">
           <div className="pb-install-proof-grid">
             <div className="pb-install-proof-copy">
               <h2 className="pb-install-proof-title" aria-label="Prompt to install, /planban to open.">
@@ -990,7 +986,7 @@ export const PlanbanPublicWebsite = ({
             <article className="pb-info-card glass">
               <small className="pb-loop-step">You see</small>
               <strong>Where it is, what is stuck, and what needs your decision, live on the board.</strong>
-              <span>You steer from the board or the conversation. Only you mark work Complete.</span>
+              <span>You steer from the board or the conversation. Owners and editors mark work Complete, or let an agent do it once they confirm.</span>
             </article>
           </div>
         </section>
@@ -1006,7 +1002,7 @@ export const PlanbanPublicWebsite = ({
           <div className="pb-import-grid">
             <div className="pb-import-copy">
               <article className="pb-info-card glass">
-                <strong>From context to Items</strong>
+                <strong>From context to items</strong>
                 <span>Turn scattered planning inputs into independent outcomes with clear titles, summaries, priorities, Specs, and next actions.</span>
               </article>
               <article className="pb-info-card glass">
@@ -1036,11 +1032,26 @@ export const PlanbanPublicWebsite = ({
           </div>
         </section>
 
-        <div className="pb-future-footer-shell pb-band-accent">
-          <section id="future" className="pb-future-full">
+        <section id="online" className="pb-online pb-band-accent" aria-labelledby="online-title" data-ascii-zone="true">
+          <div className="pb-future-heading">
+            <p className="pb-kicker">Online boards</p>
+            <h2 id="online-title">Share a board, or take it with you.</h2>
+            <p>Planban works on your computer with no account. When you want more, take one board online with a free account.</p>
+          </div>
+          <div className="pb-online-grid">
+            {onlineBoardReasons.map(reason => <article key={reason.title} className="pb-info-card glass">
+                <strong>{reason.title}</strong>
+                <span>{reason.copy}</span>
+              </article>)}
+          </div>
+          <a className="pb-button pb-online-signup" href={planbanSignInUrl}>Sign up for online boards</a>
+          <p className="pb-online-note">Your other boards stay on your computer. You can bring an online board back at any time.</p>
+        </section>
+
+        <section id="future" className="pb-future-full pb-band-neutral">
             <div className="pb-future-heading">
               <h2>Where it runs.</h2>
-              <p>Planban runs in Codex and Claude Code today, and any MCP host can use the same tools and open the board as a link. Online Mode, remote access to your own board, is in design.</p>
+              <p>Planban runs in Codex and Claude Code today, and any MCP host can use the same tools and open the board as a link. Online boards bring the same board to ChatGPT, Claude and your other devices.</p>
             </div>
             <div className="pb-platforms">
               {hostPlatforms.map(platform => {
@@ -1056,13 +1067,14 @@ export const PlanbanPublicWebsite = ({
             </div>
           </section>
 
-          <section id="faq" className="pb-faq" aria-labelledby="faq-title">
-            <div className="pb-future-heading">
-              <h2 id="faq-title">Questions.</h2>
-            </div>
-            <QuestionList document={homeFaq} />
-          </section>
+        <section id="faq" className="pb-faq pb-band-neutral" aria-labelledby="faq-title">
+          <div className="pb-future-heading">
+            <h2 id="faq-title">Questions.</h2>
+          </div>
+          <QuestionList document={homeFaq} collapsible />
+        </section>
 
+        <div className="pb-future-footer-shell pb-band-accent">
           <footer className="pb-footer pb-footer-on-accent">
         <div className="pb-footer-brand">
           <a className="pb-brand" href="#top" aria-label="Planban home">
@@ -1074,20 +1086,42 @@ export const PlanbanPublicWebsite = ({
             {planbanYouTubeUrl ? <a href={planbanYouTubeUrl} aria-label="Watch Planban tutorials on YouTube"><YouTubeIcon /></a> : null}
           </div>
         </div>
-        <div className="pb-footer-links">
-          <a href="#install">Install</a>
-          <a href="#features">Features</a>
-          <a href="#future">Hosts</a>
-          <a href="#faq">FAQ</a>
-          <a href="/claude-code/">Planban for Claude Code</a>
-          <a href="/codex/">Planban for Codex</a>
-          <a href="/what-is-an-agent-native-kanban-board/">What is agent-native Kanban?</a>
-          <a href="/docs/">Docs</a>
+        <nav className="pb-footer-links" aria-label="Footer">
+          <div className="pb-footer-group">
+            <p className="pb-footer-label">Planban</p>
+            <a href="#install">Install</a>
+            <a href="#features">Features</a>
+            <a href="#online">Online boards</a>
+            <a href="#faq">FAQ</a>
+            <a href={planbanSignInUrl}>Log in</a>
+          </div>
+          <div className="pb-footer-group">
+            <p className="pb-footer-label">Guides</p>
+            <a href="/docs/">Docs</a>
+            <a href="/codex/">Planban for Codex</a>
+            <a href="/claude-code/">Planban for Claude Code</a>
+            <a href="/what-is-an-agent-native-kanban-board/">What is agent-native Kanban?</a>
+          </div>
+          <div className="pb-footer-group">
+            <p className="pb-footer-label">About</p>
+            <a href="https://github.com/planban-ai/planban/blob/main/PRODUCT.md">Product constitution</a>
+            <a href="/privacy/">Privacy</a>
+            <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
+          </div>
+        </nav>
+        <div className="pb-footer-meta">
           <a href="/docs/changelog/">Changelog · v{planbanVersion}</a>
-          <a href="https://github.com/planban-ai/planban/blob/main/PRODUCT.md">Product constitution</a>
-          <a href="/privacy/">Privacy</a>
-          <a href="https://github.com/planban-ai/planban/blob/main/LICENSE">MIT licence</a>
-          <a className="pb-footer-credit" href="https://backpacker.gr/fonts/">Hellenica by backpacker.gr</a>
+          <div className="pb-theme-toggle pb-footer-theme-toggle" role="group" aria-label="Theme">
+            <button type="button" className={themeMode === "system" ? "active" : ""} onClick={() => setThemeMode("system")} aria-label="Use system theme" title="System">
+              <SystemIcon />
+            </button>
+            <button type="button" className={themeMode === "light" ? "active" : ""} onClick={() => setThemeMode("light")} aria-label="Use light theme" title="Light">
+              <SunIcon />
+            </button>
+            <button type="button" className={themeMode === "dark" ? "active" : ""} onClick={() => setThemeMode("dark")} aria-label="Use dark theme" title="Dark">
+              <MoonIcon />
+            </button>
+          </div>
         </div>
           </footer>
         </div>

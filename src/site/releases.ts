@@ -11,6 +11,9 @@ export interface PlanbanRelease {
 }
 
 export const planbanReleases: readonly PlanbanRelease[] = [
+  // Provisional date: set it to the GitHub publish date when v2.0.0 is released.
+  { version: "2.0.0", published: "2026-10-15", summary: "Adds online boards: share a board, open it in any browser or on your phone, and connect ChatGPT and Claude.", page: "/docs/changelog/v2-0-0/" },
+  { version: "1.1.7", published: "2026-10-11", summary: "A steady board page, Needs you on cards, out-of-date warnings for agents, a shorter Copy Reference, and a smaller install.", page: "/docs/changelog/v1-1-7/" },
   { version: "1.1.6", published: "2026-09-26", summary: "Claude Code desktop support, host-neutral agent handoff, and board discovery from linked git worktrees.", page: "/docs/changelog/v1-1-6/" },
   { version: "1.1.5", published: "2026-09-16", summary: "Fixes first-launch failures and prepares the runtime the same way for the board, CLI and MCP server." },
   { version: "1.1.4", published: "2026-09-01", summary: "Prepares lighter marketplace updates and strengthens command execution on Windows." },

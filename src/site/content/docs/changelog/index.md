@@ -2,7 +2,7 @@
 title: "Planban changelog | Planban docs"
 description: "Every public Planban release, newest first: what changed in the latest version, earlier releases back to v1.0.0, and how to update."
 path: /docs/changelog/
-updated: 2026-09-30
+updated: 2026-10-15
 sources: gh release list --repo planban-ai/planban; release/notes/*.md; release/latest.json (changelogSummary); src/site/releases.ts
 ---
 
@@ -14,13 +14,13 @@ Releases are listed newest first. Each date is the day the release was published
 
 ## What changed in the latest release?
 
-Planban v1.1.6, released on 26 September 2026, adds Claude Code desktop support, makes the agent's board-link handoff work the same way in every host, and resolves boards from linked git worktrees.
+Planban v2.0.0 adds online boards: take a board online to share it, open it in any browser or on your phone, and connect ChatGPT and Claude to it. Boards on your computer stay exactly as they are, free and with no account.
 
-- Planban installs as a Claude Code plugin, with six `/planban:` commands, the board in the browser pane, and a session-start hook.
-- MCP results that concern a board carry the board link, so agents in any host return it without the skills.
-- Sessions in a linked git worktree open the main checkout's board.
+- Invite people as editors or viewers, by email or with a link. They need nothing installed.
+- Every online board has its own address at app.planban.ai, with live updates and a layout for phones.
+- ChatGPT and claude.ai connect at `https://app.planban.ai/mcp`, and Codex and Claude Code work with online boards through the same tools as local ones.
 
-Read the full notes on the [Planban v1.1.6](/docs/changelog/v1-1-6/) page.
+Read the full notes on the [Planban v2.0.0](/docs/changelog/v2-0-0/) page, and see [Online boards](/docs/online-boards/) for how to use them. The release before it, [Planban v1.1.7](/docs/changelog/v1-1-7/), stopped the board page reloading in a loop and added Needs you and out-of-date warnings.
 
 ## Which releases came before v1.1.6?
 
