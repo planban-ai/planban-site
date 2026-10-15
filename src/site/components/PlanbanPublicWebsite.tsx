@@ -380,7 +380,9 @@ const PrivacyPolicyPage = ({
             <p><strong>Sessions and connections.</strong> Planban records each computer, browser, app and access key signed in to your account, with its name, the app it belongs to, and when it was created and last used. For the sign-ins and keys it issues itself, Planban keeps only a fingerprint, never the key. You can see and cut off every connection in Connections. A browser stays signed in for at most 7 days.</p>
             <p><strong>Cookies.</strong> app.planban.ai uses only cookies needed for sign-in: Planban's own sign-in session cookie, and Clerk's sign-in cookies. It uses no analytics or tracking cookies.</p>
             <p><strong>Usage.</strong> Planban counts how many changes each account makes and how much text it writes each day, to apply the usage limits.</p>
-            <p>When you take a board back to your computer, everyone else and their agents lose access, and the online copy stays in your account, read-only, for you. To delete your account, email <a href="mailto:hello@planban.ai">hello@planban.ai</a>.</p>
+            <p><strong>Boards you take back to your computer.</strong> When you take a board back to your computer, everyone else and their agents lose access, and the online copy stays in your account as a read-only copy until you delete it. To delete it for good, open it on the web page and choose <strong>Delete online copy</strong> in Board settings. The board on your computer is not affected.</p>
+            <p><strong>Deleting your account.</strong> To delete your account, email <a href="mailto:hello@planban.ai">hello@planban.ai</a>. Within 30 days of your request, Planban deletes the online boards you own, with their members, invitations and history, along with your sessions, connections, access keys and sign-in account. Changes you made on other people's boards stay part of those boards, credited to "a deleted account".</p>
+            <p><strong>Backups.</strong> Planban's database plan keeps no automatic backups. If a backup is ever made by hand, it expires after 7 days.</p>
           </section>
           <section>
             <h2>Contact</h2>

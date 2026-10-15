@@ -26,7 +26,7 @@ You can also start a new, empty online board on the web, from **Your boards**.
 
 In the Planban app on your computer, choose **Take local** in Board settings, or run `planban online take-local` in the project. The board comes back to your computer with its full history. Only the board's owner can take it online or bring it back, from their own signed-in computer. Connected apps and access keys cannot do it.
 
-On a shared board, everyone else, and their agents, lose access when you bring it back, and Planban asks you to confirm who that is first. The online copy stays in your account, read-only, for you.
+On a shared board, everyone else, and their agents, lose access when you bring it back, and Planban asks you to confirm who that is first. The online copy stays in your account as a read-only copy, for you alone, until you delete it. To delete it for good, open it on the web page and choose **Delete online copy** in Board settings. The board on your computer is not affected.
 
 ## How do I invite people?
 
