@@ -24,7 +24,7 @@ You can also start a new, empty online board on the web, from **Your boards**.
 
 ## How do I bring a board back to my computer?
 
-Choose **Take local** in Board settings, or run `planban online take-local` in the project. The board comes back to your computer with its full history. Only the board's owner can take it online or bring it back, and agents cannot bring a board back.
+In the Planban app on your computer, choose **Take local** in Board settings, or run `planban online take-local` in the project. The board comes back to your computer with its full history. Only the board's owner can take it online or bring it back, from their own signed-in computer. Connected apps and access keys cannot do it.
 
 On a shared board, everyone else, and their agents, lose access when you bring it back, and Planban asks you to confirm who that is first. The online copy stays in your account, read-only, for you.
 
@@ -46,7 +46,7 @@ Agents still follow the same rule as on a local board: they move a card to Compl
 
 ## How do I use a board in a browser or on my phone?
 
-Every online board has its own address at app.planban.ai. You and the people you invite can read and edit it there in any browser, with nothing to install. **Your boards** lists your boards and the ones shared with you, with how many cards need you.
+Every online board has its own address at app.planban.ai. Everyone on the board can read it there in any browser, with nothing to install, and owners and editors can edit it. **Your boards** lists your boards and the ones shared with you, with how many cards need you.
 
 - **Live updates.** When someone else, or an agent, changes the board, you see it without reloading.
 - **Editing the same document.** If someone saves a Spec or Plan while you are editing it, your text is kept and Planban shows you their version before you save again.
@@ -78,7 +78,7 @@ Planban shows a short code and a link. Open the link on any device where you are
 
 ## What are Connections and access keys?
 
-**Connections**, on the web page's account menu and in the board's menu on your computer, lists every computer, browser, app and key signed in to your account, with when each was last used. You can cut any of them off, or cut off everything at once.
+**Connections** in the web page's account menu, and **Your connections** in the board's menu on your computer, list every computer, browser, app and key signed in to your account, with when each was last used. You can cut any of them off, or cut off everything at once.
 
 **Access keys** are for agents that cannot sign in themselves. You create one on the web page, in Connections. A key reaches one board, says what it may do, and has an expiry date. Planban shows the key once, so copy it when you create it.
 

@@ -1020,7 +1020,7 @@ export const PlanbanPublicWebsite = ({
             <article className="pb-info-card glass">
               <small className="pb-loop-step">You see</small>
               <strong>Where it is, what is stuck, and what needs your decision, live on the board.</strong>
-              <span>You steer from the board or the conversation. Only a person on the board, or an agent they ask, marks work Complete.</span>
+              <span>You steer from the board or the conversation. Owners and editors mark work Complete, or let an agent do it once they confirm.</span>
             </article>
           </div>
         </section>

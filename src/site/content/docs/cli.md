@@ -125,7 +125,7 @@ node "$PLANBAN_ROOT/bin/planban.mjs" write-doc <card-id> spec --file spec.md --e
 
 ## How do I move files out of a card?
 
-Planban is an index, not file storage: a card holds only text. If a card's folder holds other files, Planban refuses changes to that card until they are moved out, although you can still read it. `move-files-out <cardId>` moves every file in the card's folder, except its Spec and Plan, to the folder you give with `--to`. It never overwrites or deletes anything, and adds a Files section to the card's Spec that refers to each file where it now lives. Run it with `--dry-run` first to see what would move and what would be added.
+Planban is an index, not file storage: a card holds only text. If a card's folder holds other files, Planban refuses changes to that card until they are moved out, although you can still read it. `move-files-out <cardId>` moves every file in the card's folder, except its Spec and Plan, to the folder you give with `--to`. It never overwrites or deletes anything, and adds a Files section to the card's Spec that refers to each file where it now lives. Run it with `--dry-run` first to see what would move and what would be added. It works on local boards only, before you take a board online.
 
 ```bash
 node "$PLANBAN_ROOT/bin/planban.mjs" move-files-out <card-id> --to <folder> --dry-run --cwd /path/to/repo

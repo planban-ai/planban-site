@@ -12,7 +12,7 @@ Planban's MCP server exposes 14 tools by default for reading boards, changing It
 
 The server runs locally over stdio. Codex and Claude Code start it through the Planban plugin; other hosts start it directly, as described in [Use Planban from other MCP hosts](/docs/other-mcp-hosts/). Hosts may add their own prefix to the tool names, but each name ends in `planban_<operation>`.
 
-The same tools work on [online boards](/docs/online-boards/) once your computer is signed in, with two stricter rules described below.
+The same tools work on [online boards](/docs/online-boards/) once your computer is signed in, with two stricter rules described below. The exception is `planban_move_files_out`, which works only on local boards, because an online board already holds text alone.
 
 ## Which tools are available by default?
 
@@ -30,7 +30,7 @@ The same tools work on [online boards](/docs/online-boards/) once your computer 
 | `planban_move_card` | Changes an Item's Status, ownership or position in one change |
 | `planban_update_card` | Changes fields other than Status: title, summary, next action, tags, blocked-by, metadata |
 | `planban_write_doc` | Replaces a card's Spec or Plan, with stale-file protection |
-| `planban_move_files_out` | Moves files out of a card's folder and refers to them from its Spec |
+| `planban_move_files_out` | Moves files out of a card's folder and refers to them from its Spec (local boards only) |
 | `planban_launch_board` | Starts or finds the local board app and returns a verified board URL |
 
 ## What does each tool take and return?
