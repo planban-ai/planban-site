@@ -53,7 +53,7 @@ const installProofSteps = [{
   copy: "One prompt installs Planban and opens the interactive tutorial, in Codex or Claude."
 }, {
   title: "Open the board from any thread",
-  copy: "Type /pb in Codex, or /planban:pb in Claude Code, to bring the board to any thread."
+  copy: "Type /planban in Codex, or /planban:planban in Claude Code, to bring the board to any thread."
 }, {
   title: "Keep the work structured",
   copy: "Use Items for independent outcomes. Use Groups when several Items contribute to one larger outcome."
@@ -201,7 +201,7 @@ const hostPlatforms = [{
   title: "Codex desktop",
   status: "Available",
   tone: "ok",
-  copy: "Board in the in-app browser. /pb, /planban, /planban-create.",
+  copy: "Board in the in-app browser. /planban, /planban-create and friends.",
   href: "/codex/",
   linkLabel: "Codex guide",
   icon: <AgentLogo src={agentLogoImages.codex} label="codex" loading="lazy" />
@@ -209,7 +209,7 @@ const hostPlatforms = [{
   title: "Claude Code desktop",
   status: "Available",
   tone: "ok",
-  copy: "Board in the browser pane. /planban:pb and friends.",
+  copy: "Board in the browser pane. /planban:planban and friends.",
   href: "/claude-code/",
   linkLabel: "Claude Code guide",
   icon: <AgentLogo src={agentLogoImages.claude} label="claude" loading="lazy" />
@@ -259,8 +259,8 @@ const SlashCommandMockup = ({
   theme: "light" | "dark";
 }) => <div className="pb-command-mockup">
     <div className="pb-command-hosts" aria-hidden="true">
-      <span className="active"><img src={agentLogoImages.codex} alt="" width={13} height={13} />Codex · /pb</span>
-      <span><img src={agentLogoImages.claude} alt="" width={13} height={13} />Claude · /planban:pb</span>
+      <span className="active"><img src={agentLogoImages.codex} alt="" width={13} height={13} />Codex · /planban</span>
+      <span><img src={agentLogoImages.claude} alt="" width={13} height={13} />Claude · /planban:planban</span>
     </div>
     <div className="pb-command-menu glass">
       {["Planban", "Planban Help", "Planban Create", "Planban Feedback", "Planban Tutorial"].map((label, index) => <div className={`pb-command-row ${index === 0 ? "active" : ""}`} key={label}>

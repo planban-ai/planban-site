@@ -15,7 +15,7 @@ No. Planban works on your computer with no account. You only need a free account
 
 ## Which agents does it work with?
 
-Planban works with Codex and Claude today. In the Codex desktop app the board opens in the in-app browser with `/pb`, and in the Claude Code desktop app it opens in the browser pane with `/planban:pb`. Both installs share the same boards on your device. ChatGPT and claude.ai can connect to a board you take online.
+Planban works with Codex and Claude today. In the Codex desktop app the board opens in the in-app browser with `/planban`, and in the Claude Code desktop app it opens in the browser pane with `/planban:planban`. `/pb`, or `/planban:pb` in Claude Code, is a quick shortcut that opens the board straight away. Both installs share the same boards on your device. ChatGPT and claude.ai can connect to a board you take online.
 
 ## Where is my planning data stored?
 

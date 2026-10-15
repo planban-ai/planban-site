@@ -57,7 +57,7 @@ Other commands:
 
 Claude acts as a trusted editor of the plan. It creates Items and Groups, writes Specs and Plans, moves Items between Statuses, and keeps each summary and next action current.
 
-You own intent, priority, and acceptance. Only you mark work Complete. Claude reads and writes the board through Planban's MCP tools, so a drag on the board and a tool call from Claude run the same operation and write the same history.
+You own intent, priority, and acceptance. You mark work Complete, and so can editors you invite to a shared [online board](/docs/online-boards/). Claude marks work Complete only when one of you confirms it. Claude reads and writes the board through Planban's MCP tools, so a drag on the board and a tool call from Claude run the same operation and write the same history.
 
 When a session starts in a project that uses Planban, a session-start hook tells Claude where the board is. Sessions in a linked git worktree resolve to the same board as the main checkout.
 
@@ -77,7 +77,7 @@ Online boards arrived in Planban 2.0: see [Online boards](/docs/online-boards/) 
 
 The board opens beside the session only in the Claude Code desktop app, which provides the browser pane. Elsewhere, Claude gives you the board as a link to open in your browser.
 
-Planban is built for one person directing project work with agents. If you need a team project-management suite with sprints, roles, and reporting, Planban is not the right choice.
+Planban is built for one person, or a small team sharing an online board, directing project work with agents. If you need a team project-management suite with sprints and reporting, Planban is not the right choice.
 
 ## Where can I get help?
 

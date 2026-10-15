@@ -57,7 +57,7 @@ To reopen the tour, ask Codex to open the Planban tutorial.
 
 Codex acts as a trusted editor of the plan. It creates Items and Groups, writes Specs and Plans, moves Items between Statuses, and keeps each summary and next action current.
 
-You own intent, priority, and acceptance. Only you mark work Complete. Codex reads and writes the board through Planban's MCP tools, so a drag on the board and a tool call from Codex run the same operation and write the same history.
+You own intent, priority, and acceptance. You mark work Complete, and so can editors you invite to a shared [online board](/docs/online-boards/). Codex marks work Complete only when one of you confirms it. Codex reads and writes the board through Planban's MCP tools, so a drag on the board and a tool call from Codex run the same operation and write the same history.
 
 Threads in a Codex worktree resolve to the same board as the repository's main checkout.
 
@@ -81,7 +81,7 @@ Online boards arrived in Planban 2.0: see [Online boards](/docs/online-boards/) 
 
 The board opens beside the thread in the Codex desktop app, which provides the in-app browser, and beside the session in the Claude Code desktop app's browser pane. Other hosts get the board as a link to open in your browser.
 
-Planban is built for one person directing project work with agents. If you need a team project-management suite with sprints, roles, and reporting, Planban is not the right choice.
+Planban is built for one person, or a small team sharing an online board, directing project work with agents. If you need a team project-management suite with sprints and reporting, Planban is not the right choice.
 
 ## Where can I get help?
 
