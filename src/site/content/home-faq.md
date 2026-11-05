@@ -1,29 +1,33 @@
 ---
 title: "Planban FAQ"
-description: "Answers to common questions about Planban: supported agents, where data is stored, licence, offline use, other MCP hosts, and how to install."
+description: "Answers to common questions about Planban: accounts, supported agents, where data is stored, licence, offline use, other MCP hosts, and how to install."
 path: /
-updated: 2026-09-30
+updated: 2026-10-15
 ---
 
 ## What is Planban?
 
-Planban is a local-first, agent-native Kanban board that installs as a plugin in Codex and Claude Code, so your agents keep the plan current and you see the whole project at a glance. Agents write and update Items, Specs, Plans, and next actions. You own intent, priority, and acceptance.
+Planban is a Kanban board for you and your agents: ideas, to-dos, specs and plans for the whole project, in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date. You own intent, priority, and acceptance. It is free on your computer; take a board online when you want to share it.
+
+## Do I need an account?
+
+No. Planban works on your computer with no account. You only need a free account to take a board online: to share it, use it on another device, or connect ChatGPT or Claude.
 
 ## Which agents does it work with?
 
-Planban works with Codex and Claude today. In the Codex desktop app the board opens in the in-app browser with `/pb`, and in the Claude Code desktop app it opens in the browser pane with `/planban:pb`. Both installs share the same boards on your device.
+Planban works with Codex and Claude today. In the Codex desktop app the board opens in the in-app browser with `/planban`, and in the Claude Code desktop app it opens in the browser pane with `/planban:planban`. `/pb`, or `/planban:pb` in Claude Code, is a quick shortcut that opens the board straight away. Both installs share the same boards on your device. ChatGPT and claude.ai can connect to a board you take online.
 
 ## Where is my planning data stored?
 
-Your planning data stays on your machine. Live board state lives under `~/.planban`, separate from your repo, and only small discovery files sit in `.planban/` in your project. Planban does not upload your boards.
+Boards on your computer stay there. Live board state lives under `~/.planban`, separate from your repo, and only small discovery files sit in `.planban/` in your project. Planban never uploads them. A board you take online lives at app.planban.ai instead, where only the people you invite, and the apps they connect, can see it.
 
 ## Is Planban free and open source?
 
-Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin.
+Yes. Planban's local core is open source under the MIT licence, and the code is on GitHub at planban-ai/planban. It is not published on npm; you install it from GitHub as a plugin. Online boards are free too.
 
 ## Does it replace Linear, Jira, or Trello?
 
-No. Planban is built for one person directing project work with agents, not for team project management, sprints, or reporting. If you use those tools, you can ask your agent to turn their context into draft Planban Items for review.
+No. Planban is built for people directing project work with agents, alone or with a co-founder or small team, not for sprints or reporting. If you use those tools, you can ask your agent to turn their context into draft Planban Items for review.
 
 ## Does it work offline?
 

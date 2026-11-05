@@ -6,7 +6,7 @@ export const siteOrigin = "https://planban.ai";
 export const siteUrl = `${siteOrigin}/`;
 
 /** The released Planban version shown in the header pill and structured data. */
-export const planbanVersion = "1.1.6";
+export const planbanVersion = "2.0.0";
 export const planbanReleaseUrl = `https://github.com/planban-ai/planban/releases/tag/v${planbanVersion}`;
 export const planbanReleasesUrl = "https://github.com/planban-ai/planban/releases";
 export const planbanRepositoryUrl = "https://github.com/planban-ai/planban";
@@ -15,7 +15,10 @@ export const planbanXProfileUrl = "https://x.com/planbanai";
 
 /** Owner-approved canonical description of Planban. */
 export const planbanCanonicalDescription =
-  "Planban is a local-first, agent-native Kanban board that installs as a plugin in Codex and Claude Code, so your agents keep the plan current and you see the whole project at a glance.";
+  "Planban is a Kanban board for you and your agents: ideas, to-dos, specs and plans in one place. It installs as a plugin in Codex and Claude Code, and your agents read it, work from it and keep it up to date.";
+
+/** Where people sign in to online boards, and sign up for them. */
+export const planbanSignInUrl = "https://app.planban.ai/sign-in";
 
 export const planbanLogoUrl = `${siteOrigin}/assets/planban-logo-512.png`;
 export const planbanSocialImageUrl = `${siteOrigin}/assets/planban-social-preview.png`;
@@ -26,7 +29,7 @@ export const planbanSocialImageUrl = `${siteOrigin}/assets/planban-social-previe
  */
 export const planbanFeatureList = [
   "One board for the whole project",
-  "Every Item, tracked as it happens",
+  "Every item, tracked as it happens",
   "Steer from any thread",
   "Scope and document each outcome",
   "Nothing lands until you approve it",

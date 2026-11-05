@@ -1,8 +1,8 @@
 ---
 title: "Where Planban stores your data | Planban docs"
-description: "What Planban keeps in your project's .planban/ folder and in ~/.planban on your machine, whether to commit it, how much history it keeps, and what it never uploads."
+description: "What Planban keeps in your project's .planban/ folder and in ~/.planban on your machine, whether to commit it, how much history it keeps, and what it uploads only when you take a board online."
 path: /docs/data-storage/
-updated: 2026-09-30
+updated: 2026-10-15
 sources: README.md (Local Storage, Updates); src/core/paths.ts; src/core/storage.ts (initializeProject, appendEvent); src/core/protocol.ts (buildAgentContext); src/core/demo.ts; src/core/history.ts (HISTORY_RETENTION, pruneHistory, resolveHistoryDoc); src/core/registry.ts (deleteBoard, duplicateBoard, archiveBoard); src/core/types.ts (PlanbanProjectManifest); src/core/version.ts; src/server/server.ts (listen, fetchLatestUpdateManifest); plugins/planban/scripts/launch-planban.mjs (launchLogPath); .gitignore
 ---
 
@@ -50,11 +50,11 @@ The local board app serves this data only on `127.0.0.1`, so it is reachable fro
 
 Every change to a board records a version in its history, with who made it (you, an agent, an import or the system), what changed and which cards and documents it touched. Open **Board history** from the board's **More Board actions** menu to browse versions and restore the board, a card or a document.
 
-Planban keeps every version from the last 90 days, and always at least the latest 100 versions, whatever their age. Older versions beyond both limits are removed. When you restore a document, Planban looks back through up to 25 earlier versions of it.
+Planban always keeps the latest 100 versions, whatever their age. Beyond those, it keeps one version per hour for the last two days and one per day back to 90 days, and removes anything older. A large backlog is cleared gradually, a few hundred versions at a time as the board changes. When you restore a document, Planban looks back through up to 25 earlier versions of it.
 
 ## Does Planban upload any of my data?
 
-No. Your boards, Items, Specs, Plans and history stay on your machine.
+Not unless you take a board online. Your local boards, Items, Specs, Plans and history stay on your machine. A board you take online moves to your Planban account at app.planban.ai, where only the people you invite, and the apps they connect, can see it. See [Online boards](/docs/online-boards/) and the [privacy policy](/privacy/).
 
 While a board is open, Planban checks public version metadata on GitHub to see whether an update is available. That request fetches a small public file and sends no board contents, repository paths, logs or project details. See [Update Planban](/docs/updating/#what-does-the-update-check-send-to-github).
 

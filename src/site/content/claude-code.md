@@ -2,7 +2,7 @@
 title: "Kanban board for Claude Code | Planban"
 description: "Planban is a local-first, agent-native Kanban board that installs as a Claude Code plugin. Claude keeps the plan current; you see the whole project."
 path: /claude-code/
-updated: 2026-09-30
+updated: 2026-10-15
 ---
 
 # Kanban board for Claude Code
@@ -57,7 +57,7 @@ Other commands:
 
 Claude acts as a trusted editor of the plan. It creates Items and Groups, writes Specs and Plans, moves Items between Statuses, and keeps each summary and next action current.
 
-You own intent, priority, and acceptance. Only you mark work Complete. Claude reads and writes the board through Planban's MCP tools, so a drag on the board and a tool call from Claude run the same operation and write the same history.
+You own intent, priority, and acceptance. You mark work Complete, and so can editors you invite to a shared [online board](/docs/online-boards/). Claude marks work Complete only when one of you confirms it. Claude reads and writes the board through Planban's MCP tools, so a drag on the board and a tool call from Claude run the same operation and write the same history.
 
 When a session starts in a project that uses Planban, a session-start hook tells Claude where the board is. Sessions in a linked git worktree resolve to the same board as the main checkout.
 
@@ -73,11 +73,11 @@ Do not commit `~/.planban` to your project repo.
 
 ## What is not supported yet?
 
-Online Mode is not available yet. It is in design, and will add remote access to your own board. Local Mode is complete and stays a permanent choice.
+Online boards arrived in Planban 2.0: see [Online boards](/docs/online-boards/) to share a board or open it in a browser, and Local Mode stays a permanent choice.
 
 The board opens beside the session only in the Claude Code desktop app, which provides the browser pane. Elsewhere, Claude gives you the board as a link to open in your browser.
 
-Planban is built for one person directing project work with agents. If you need a team project-management suite with sprints, roles, and reporting, Planban is not the right choice.
+Planban is built for one person, or a small team sharing an online board, directing project work with agents. If you need a team project-management suite with sprints and reporting, Planban is not the right choice.
 
 ## Where can I get help?
 

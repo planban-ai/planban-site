@@ -32,7 +32,7 @@ const stages = [{
   actor: "You",
   status: "Complete",
   line: "Shipped in v1.2. Accepted by you.",
-  caption: "Only you mark it Complete.",
+  caption: "You mark it Complete, or confirm an agent can.",
   done: true
 }] as const;
 

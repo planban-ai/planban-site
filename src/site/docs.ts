@@ -14,6 +14,7 @@ import itemsAndGroupsMeta from "./content/docs/items-and-groups.md?meta";
 import statusAndPriorityMeta from "./content/docs/status-and-priority.md?meta";
 import specsPlansNextActionsMeta from "./content/docs/specs-plans-next-actions.md?meta";
 import agentProtocolMeta from "./content/docs/agent-protocol.md?meta";
+import onlineBoardsMeta from "./content/docs/online-boards.md?meta";
 import cliMeta from "./content/docs/cli.md?meta";
 import mcpToolsMeta from "./content/docs/mcp-tools.md?meta";
 import dataStorageMeta from "./content/docs/data-storage.md?meta";
@@ -21,6 +22,8 @@ import gitWorktreesMeta from "./content/docs/git-worktrees.md?meta";
 import updatingMeta from "./content/docs/updating.md?meta";
 import troubleshootingMeta from "./content/docs/troubleshooting.md?meta";
 import changelogMeta from "./content/docs/changelog/index.md?meta";
+import release200Meta from "./content/docs/changelog/v2-0-0.md?meta";
+import release117Meta from "./content/docs/changelog/v1-1-7.md?meta";
 import release116Meta from "./content/docs/changelog/v1-1-6.md?meta";
 
 export type DocsSectionId = "get-started" | "use-planban" | "reference" | "maintain" | "changelog";
@@ -70,6 +73,7 @@ export const docsSections: readonly DocsSection[] = [
       { id: "docs-status-and-priority", meta: statusAndPriorityMeta, sourceFile: "src/site/content/docs/status-and-priority.md", breadcrumbName: "Status and priority" },
       { id: "docs-specs-plans-next-actions", meta: specsPlansNextActionsMeta, sourceFile: "src/site/content/docs/specs-plans-next-actions.md", breadcrumbName: "Specs, Plans and next actions" },
       { id: "docs-agent-protocol", meta: agentProtocolMeta, sourceFile: "src/site/content/docs/agent-protocol.md", breadcrumbName: "Agent protocol" },
+      { id: "docs-online-boards", meta: onlineBoardsMeta, sourceFile: "src/site/content/docs/online-boards.md", breadcrumbName: "Online boards" },
     ],
   },
   {
@@ -95,6 +99,8 @@ export const docsSections: readonly DocsSection[] = [
     title: "Changelog",
     pages: [
       { id: "docs-changelog", meta: changelogMeta, sourceFile: "src/site/content/docs/changelog/index.md", breadcrumbName: "Changelog" },
+      { id: "docs-changelog-v2-0-0", meta: release200Meta, sourceFile: "src/site/content/docs/changelog/v2-0-0.md", breadcrumbName: "v2.0.0", parentId: "docs-changelog" },
+      { id: "docs-changelog-v1-1-7", meta: release117Meta, sourceFile: "src/site/content/docs/changelog/v1-1-7.md", breadcrumbName: "v1.1.7", parentId: "docs-changelog" },
       { id: "docs-changelog-v1-1-6", meta: release116Meta, sourceFile: "src/site/content/docs/changelog/v1-1-6.md", breadcrumbName: "v1.1.6", parentId: "docs-changelog" },
     ],
   },

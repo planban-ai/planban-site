@@ -268,16 +268,26 @@ export const ContentPage = ({
 
 /**
  * Renders a question-and-answer document (every ## heading is a question) as
- * a list of items whose questions are h3 headings.
+ * a list of items whose questions are h3 headings. Collapsible lists start
+ * closed and open one answer at a time; the answers stay in the page for
+ * search engines.
  */
 export const QuestionList = ({
-  document
+  document,
+  collapsible = false
 }: {
   document: ContentDocument;
+  collapsible?: boolean;
 }) => {
   const { sections } = splitSections(document);
-  return <div className="pb-faq-list">
-      {sections.map(section => <div key={section.heading.id} className="pb-faq-item">
+  return <div className={`pb-faq-list ${collapsible ? "is-collapsible" : ""}`}>
+      {sections.map(section => collapsible ? <details key={section.heading.id} className="pb-faq-item" name="faq">
+            <summary>
+              {renderBlock(section.heading, -1, 1)}
+              <svg className="pb-faq-chevron" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 9 6 6 6-6" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" /></svg>
+            </summary>
+            {section.blocks.map((block, index) => renderBlock(block, index))}
+          </details> : <div key={section.heading.id} className="pb-faq-item">
           {renderBlock(section.heading, -1, 1)}
           {section.blocks.map((block, index) => renderBlock(block, index))}
         </div>)}

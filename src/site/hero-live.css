@@ -376,6 +376,10 @@
   font-weight: 700;
   letter-spacing: 0.04em;
 }
+/* Where it runs sits on the page background: light mode needs dark text and stronger labels. */
+.pb-site.light .pb-band-neutral .pb-platform-card p { color: var(--pb-muted); }
+.pb-site.light .pb-band-neutral .pb-platform-card.tone-ok small { color: #12804a; }
+.pb-site.light .pb-band-neutral .pb-platform-text-icon { border-color: var(--pb-line-strong); }
 @media (max-width: 980px) {
   .pb-platforms { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
