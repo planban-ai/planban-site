@@ -16,8 +16,12 @@ function readCommit(html) {
 
 async function readPublicPayload(response, html) {
   const scriptSources = Array.from(html.matchAll(/<script[^>]+src=["']([^"']+)["']/giu), match => match[1]);
-  const scripts = await Promise.all(scriptSources.map(async (source) => {
-    const scriptUrl = new URL(source, response.url);
+  // Only scan scripts this site serves. Third-party scripts (analytics) are
+  // not our content and may legitimately mention localhost.
+  const ownScriptUrls = scriptSources
+    .map(source => new URL(source, response.url))
+    .filter(scriptUrl => scriptUrl.origin === new URL(response.url).origin);
+  const scripts = await Promise.all(ownScriptUrls.map(async (scriptUrl) => {
     const scriptResponse = await fetch(scriptUrl, {
       headers: {
         "cache-control": "no-cache",
